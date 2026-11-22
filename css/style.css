@@ -313,8 +313,8 @@ a.halo:hover .dk,a.halo:focus-visible .dk{--dy:-2cqw}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* 스토리에 속한 캐릭터 카드(제라딘 56세·아드리안): 바탕색이 다름 */
-.tcard.tale .face{background:linear-gradient(165deg,#5a2540,#220d1a 72%)}
-.tcard.tale .art{background:#1a0a13}
+.tcard.tale .face,.tcard.story .face{background:linear-gradient(165deg,#5a2540,#220d1a 72%)}
+.tcard.tale .art,.tcard.story .art{background:#1a0a13}
 
 /* 카드 뽑기 결과 한 줄 */
 .res h3.luck{max-width:24em;margin-left:auto;margin-right:auto;font-family:var(--body);font-weight:700;font-size:18px;line-height:1.7;color:var(--gold);text-wrap:balance}
