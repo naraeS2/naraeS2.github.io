@@ -15,10 +15,10 @@ const CHARS = [
   {id:'jeradin', arc:'major', num:'IV', en:'The Emperor', name:'제라딘 아르카나', role:'아르카나 제국의 황제', age:'30세',
    hook:'즉위 4년째, 통치 능력을 증명해야 하는 서른의 황제. 정무의 고단함과 간택 성화 속에서 일기장에만 털어놓은 것은 무엇일까.', kw:['권위','야망','책임','통제','고독'], a:'#e3bf6a', img:'https://i.ibb.co/V0pzxYXJ/30.png',
    link:'https://litychat.com/share/content/bffa90c6-ceca-4409-8086-dd49e2e30fc1'},
-  {id:'jeradin56', cast:false, arc:'major', num:'IV', en:'The Emperor', name:'제라딘 아르카나', ver:'56세 · 찬란한 불협화음', role:'아르카나 제국의 황제', age:'56세',
+  {id:'jeradin56', arc:'major', num:'IV', en:'The Emperor', name:'제라딘 아르카나', ver:'56세 · 찬란한 불협화음', role:'아르카나 제국의 황제', age:'56세',
    hook:'오래된 금처럼 묵직한 황제. 아들에게는 칭찬 대신 과제와 기대를 건넨다.', kw:['권위','질서','통제','서툰 애정'], a:'#c28f35', img:'https://i.ibb.co/HpFBdVB0/image.png',
    link:STORY_LINK},
-  {id:'silen', arc:'major', num:'XIII', en:'Death', name:'실렌', role:'죽음의 정령 · 마지막 손님', age:'',
+  {id:'silen', arc:'major', num:'XIII', en:'The Death', name:'실렌', role:'죽음의 정령 · 마지막 손님', age:'',
    hook:'인간의 이름도 직업도 없이, 자연 속에서 끝과 시작을 지켜보는 존재.', kw:['끝맺음','전환','재생'], a:'#8fbab0', img:'https://i.ibb.co/mV2Kbk8D/image.png',
    link:'https://litychat.com/share/content/b1c8bec1-d52e-43d4-8a9d-a06b27e6dbd1'},
   {id:'nero', arc:'major', num:'XV', en:'The Devil', name:'네로 벨라드', role:'살롱 ‘붉은 패’의 주인', age:'25세',
@@ -27,7 +27,7 @@ const CHARS = [
   {id:'vesper', arc:'major', num:'XVII', en:'The Star', name:'베스페르 아르덴', role:'라르고 성의 젊은 백작', age:'23세',
    hook:'“무슨 일로 저를 찾아오신 건가요.”', kw:['희망','영감','성광','고요'], a:'#8fb3de', img:'https://i.ibb.co/RkcWTLtm/image.png',
    link:'https://litychat.com/share/content/0eb860a0-6d54-4144-99fa-ded7549ad4fe'},
-  {id:'adrian', cast:false, arc:'major', num:'XIX', en:'The Sun', name:'아드리안', ver:'찬란한 불협화음', role:'아르카나 제국의 황태자', age:'26세',
+  {id:'adrian', arc:'major', num:'XIX', en:'The Sun', name:'아드리안 아르카나', ver:'찬란한 불협화음', role:'아르카나 제국의 황태자', age:'26세',
    hook:'한낮의 태양 같은 황태자. 그늘진 궁정에 불쑥 들어선 빛.', kw:['생명력','낙관','자신감','희망'], a:'#f0c267', img:'https://i.ibb.co/fYr4S6BD/image.png',
    link:STORY_LINK},
   {id:'kairen', arc:'minor', num:'Ace', en:'Ace of Wands', name:'카이렌 바르트', role:'변경 개척단장 · 화염술사', age:'36세',
@@ -42,7 +42,7 @@ const CHARS = [
 ];
 
 const STORIES = [
-  {t:'찬란한 불협화음', st:'공개', img:'https://i.ibb.co/99smcHrK/image.png', one:'삼각관계는 질색인데요!?', gen:'궁정 로맨스 · 정치 드라마',
+  {id:'brilliant', num:'✦', en:'The Tale', a:'#e3bf6a', t:'찬란한 불협화음', st:'공개', img:'https://i.ibb.co/99smcHrK/image.png', one:'삼각관계는 질색인데요!?', gen:'궁정 로맨스 · 정치 드라마',
    txt:'오래된 금처럼 묵직한 황제와 한낮처럼 눈부신 황태자. 부자가 함께 사는 궁정에서 당신의 선택이 균형을 흔듭니다.',
    more:'정치 갈등은 통치 과정의 현실적인 문제로만 다룹니다. 아버지와 아들, 황제와 개인 사이에서 누구의 속도에 맞출지는 오롯이 당신의 몫입니다.',
    who:['jeradin56','adrian'], link:STORY_LINK}
