@@ -48,8 +48,7 @@ function reveal(c){
   const info = document.createElement('div');
   info.innerHTML = `
     <h3>오늘의 카드는 ‘${c.en}’</h3>
-    <p>${c.name}${c.ver ? ' (' + c.ver + ')' : ''} · ${c.role}</p>
-    <p>카드를 눌러 뒤집어 보세요.</p>
+    <p>카드를 눌러보세요.</p>
     <div class="cta">
       <a class="btn main" href="tarot.html#${c.id}">Tarot Card에서 보기</a>
       <button class="btn ghost" type="button" id="again">다시 뽑기</button>

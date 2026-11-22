@@ -150,11 +150,11 @@ section{padding:84px 0 8px}
 .route .bar{position:relative;height:8px;border-radius:99px;background:rgba(75,59,99,.6)}
 .route .bar i{position:absolute;top:0;bottom:0;min-width:8px;border-radius:99px;background:linear-gradient(90deg,var(--gold-d),var(--gold))}
 .route span{color:var(--muted);text-align:right;white-space:nowrap}
-.cur{display:flex;align-items:center;gap:20px;margin-top:14px}
-.coins{display:flex;flex-direction:column;align-items:center;gap:2px;flex:none}
-.ctext{flex:1;min-width:0}
-.ctext p{font-size:14.5px;line-height:1.75;color:var(--muted)}
-.ctext p+p{margin-top:10px}
+.cur{display:flex;flex-direction:column;gap:2px;margin-top:14px}
+.crow{display:grid;grid-template-columns:74px 1fr;align-items:center;gap:16px}
+.crow p{font-size:14.5px;line-height:1.6;color:var(--ivory)}
+.cur .eq{width:74px;text-align:center}
+.cur-note{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:14px;line-height:1.7;color:var(--muted)}
 .coin{width:74px;height:74px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--head);font-weight:700;font-size:14px;line-height:1.3;
   box-shadow:inset 0 0 0 3px var(--panel),inset 0 0 0 4px currentColor}
 .coin small{font-family:var(--body);font-weight:400;font-size:11.5px;color:var(--muted)}
@@ -163,8 +163,8 @@ section{padding:84px 0 8px}
 
 /* ---------- 카드 (공통) ---------- */
 .filters{display:flex;justify-content:center;gap:8px;margin-bottom:26px;flex-wrap:wrap}
-.rail{display:grid;grid-template-columns:repeat(2,1fr);gap:20px 14px;padding:14px 0 20px}
-@media(min-width:640px){.rail{grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:26px 22px}}
+.rail{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 8px;padding:14px 0 20px;max-width:860px;margin:0 auto}
+@media(min-width:640px){.rail{gap:26px 20px}}
 .tcard{container-type:inline-size;aspect-ratio:300/520;perspective:1400px;position:relative}
 @media(min-width:640px){.tcard{transition:transform .3s}.tcard:hover{transform:translateY(-6px)}}
 .inner{position:absolute;inset:0;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;transition:transform .85s cubic-bezier(.2,.7,.2,1)}
@@ -288,22 +288,19 @@ a.halo:hover .dk,a.halo:focus-visible .dk{--dy:-2cqw}
 .tcard.story .back .fl{margin:2cqw auto}
 .tcard.story .back .hook{font-size:4.9cqw;line-height:1.65}
 .kw.who{flex-direction:column;align-items:center}
-.kw.who li{padding:0}
-.kw.who a{display:block;padding:.6cqw 3.4cqw;color:inherit;text-decoration:none}
+.kw.who li{width:62cqw;padding:0;font-size:4cqw}
+.kw.who a{display:block;padding:.7cqw 0;text-align:center;white-space:nowrap;color:inherit;text-decoration:none}
 .kw.who li:hover{background:color-mix(in srgb,var(--a) 18%,transparent)}
 
-/* ---------- 휴대폰: 2열 카드 뒷면 글씨 보정 ---------- */
+/* ---------- 작은 화면(3열): 앞면 글씨 보정 · 카드를 누르면 크게 보기 ---------- */
 @media(max-width:639px){
-  .back{padding:12cqw 9cqw 9cqw}
-  .back .role{font-size:max(5.2cqw,10px)}
-  .back h3{font-size:max(8.6cqw,15px)}
-  .back .age{font-size:max(5.4cqw,10px)}
-  .back .hook{font-size:max(5.5cqw,10.5px);line-height:1.6}
-  .kw li{font-size:max(4.6cqw,9.5px)}
-  .go{font-size:max(4.8cqw,10.5px);min-height:9cqw}
-  .fb{font-size:max(4.6cqw,10.5px)}
-  .plate .ver{font-size:max(4.2cqw,9px)}
-  .back .one{font-size:max(5.2cqw,10px)}
-  .tcard.story .back .hook{font-size:max(4.9cqw,10px)}
-  .cur{gap:14px}
+  .plate .nm{font-size:max(7.6cqw,10px)}
+  .plate .en{font-size:max(6.2cqw,8px)}
+  .plate .ver{font-size:max(4.2cqw,7.5px);white-space:nowrap}
 }
+.zoom{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:16px;background:rgba(21,14,32,.93);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.zoom[hidden]{display:none}
+.zoom .tcard{flex:none;width:min(320px,84vw,calc((100vh - 120px) * .577))}
+.zoom .tcard:hover{transform:none}
+.zoom .x{min-height:44px;padding:0 28px;border:1px solid var(--gold-d);border-radius:99px;font-family:var(--head);font-weight:700;font-size:15px;color:var(--ivory)}
+.zoom .x:hover{background:rgba(210,173,98,.12)}

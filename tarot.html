@@ -79,6 +79,11 @@ A Tale of ARCANA
 
 <noscript><p style="text-align:center;padding:30px;color:#a99dba">카드를 보려면 JavaScript를 켜 주세요.</p></noscript>
 
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-label="카드 크게 보기" hidden>
+  <div id="zoomCard"></div>
+  <button class="x" type="button" id="zoomX">닫기</button>
+</div>
+
 <script src="js/data.js"></script>
 <script src="js/app.js"></script>
 <script>
@@ -102,6 +107,7 @@ $('#filters').addEventListener('click', e => {
 /* 카드를 찾아 가운데로 스크롤하고 뒤집어 보여 줌 (스토리 카드의 인물 버튼, 카드 뽑기, 주소 #id) */
 function showCard(id){
   if(!byId(id) && !STORIES.some(s => s.id === id)) return;
+  if(small.matches){ openZoom(id); return; }
   const need = byId(id) ? 'char' : 'story';
   if(filter !== 'all' && filter !== need) setFilter('all');
   const el = $(`.tcard[data-id="${id}"]`, rail); if(!el) return;
@@ -114,6 +120,35 @@ rail.addEventListener('click', e => {
   const a = e.target.closest('a[data-char]'); if(!a) return;
   e.preventDefault(); showCard(a.dataset.char);
 });
+
+/* 작은 화면(3열)에서는 카드를 누르면 크게 띄워서 뒷면까지 읽을 수 있게 함 */
+const small = matchMedia('(max-width:639px)');
+const zoom = $('#zoom'), zoomCard = $('#zoomCard');
+let lastFocus = null;
+function openZoom(id){
+  const c = byId(id), s = STORIES.find(x => x.id === id);
+  const card = c ? makeCard(c) : makeStoryCard(s);
+  zoomCard.replaceChildren(card);
+  if(zoom.hidden){ lastFocus = document.activeElement; document.body.style.overflow = 'hidden'; }
+  zoom.hidden = false;
+  setTimeout(() => card.setFlip(true), reduce ? 0 : 150);
+  $('#zoomX').focus();
+}
+function closeZoom(){
+  zoom.hidden = true; zoomCard.replaceChildren(); document.body.style.overflow = '';
+  if(lastFocus && lastFocus.focus) lastFocus.focus();
+}
+rail.addEventListener('click', e => {
+  if(!small.matches) return;
+  const b = e.target.closest('.flip'); if(!b) return;
+  e.stopPropagation(); openZoom(b.closest('.tcard').dataset.id);
+}, true);
+zoom.addEventListener('click', e => {
+  const a = e.target.closest('a[data-char]');
+  if(a){ e.preventDefault(); openZoom(a.dataset.char); return; }
+  if(e.target === zoom || e.target.closest('#zoomX')) closeZoom();
+});
+addEventListener('keydown', e => { if(e.key === 'Escape' && !zoom.hidden) closeZoom(); });
 function openFromHash(){
   const id = decodeURIComponent(location.hash.slice(1));
   if(id) showCard(id);

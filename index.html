@@ -127,16 +127,13 @@
       </div>
       <div class="box">
         <h3>화폐</h3>
-        <div class="cur">
-          <div class="coins" aria-label="1금화는 100은화, 1은화는 100동화">
-            <div class="coin g">금화<small>1</small></div><span class="eq">= 100</span>
-            <div class="coin s">은화<small>1</small></div><span class="eq">= 100</span>
-            <div class="coin c">동화<small>1</small></div>
-          </div>
-          <div class="ctext">
-            <p>일상은 동화와 은화, 고가 마도구·유물·귀족 계약은 금화로 오갑니다.</p>
-            <p>계약과 신용 중심의 상업이라 위조 계약과 사기, 밀수도 함께 존재합니다.</p>
-          </div>
+        <div class="cur" role="group" aria-label="1금화는 100은화, 1은화는 100동화">
+          <div class="crow"><div class="coin g">금화<small>1</small></div><p>고가 마도구·유물, 귀족 계약</p></div>
+          <span class="eq">= 100</span>
+          <div class="crow"><div class="coin s">은화<small>1</small></div><p>일상의 거래</p></div>
+          <span class="eq">= 100</span>
+          <div class="crow"><div class="coin c">동화<small>1</small></div><p>작은 값의 일상 거래</p></div>
+          <p class="cur-note">계약과 신용 중심의 상업이라 위조 계약과 사기, 밀수도 함께 존재합니다.</p>
         </div>
       </div>
     </div>
