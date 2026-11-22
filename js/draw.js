@@ -47,8 +47,7 @@ function reveal(c){
   box.append(card);
   const info = document.createElement('div');
   info.innerHTML = `
-    <h3>오늘의 카드는 ‘${c.en}’</h3>
-    <p>카드를 눌러보세요.</p>
+    <h3 class="luck">${LUCK[c.id] || ''}</h3>
     <div class="cta">
       <a class="btn main" href="tarot.html#${c.id}">Tarot Card에서 보기</a>
       <button class="btn ghost" type="button" id="again">다시 뽑기</button>

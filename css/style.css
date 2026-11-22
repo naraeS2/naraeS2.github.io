@@ -69,8 +69,8 @@ a{color:inherit}
 .btn.main:hover{transform:translateY(-2px)}
 .btn.ghost{border:1px solid var(--gold-d);color:var(--ivory)}
 .btn.ghost:hover{background:rgba(210,173,98,.12)}
-.hero .halo,.hero h1,.hero .en,.hero .tag,.hero .cta{animation:rise 1.1s cubic-bezier(.2,.7,.2,1) both}
-.hero h1{animation-delay:.15s}.hero .en{animation-delay:.25s}.hero .tag{animation-delay:.35s}.hero .cta{animation-delay:.45s}
+.hero .halo,.hero .ask,.hero .tag{animation:rise 1.1s cubic-bezier(.2,.7,.2,1) both}
+.hero .tag{animation-delay:.3s}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 
 /* ---------- 섹션 공통 ---------- */
@@ -150,11 +150,11 @@ section{padding:84px 0 8px}
 .route .bar{position:relative;height:8px;border-radius:99px;background:rgba(75,59,99,.6)}
 .route .bar i{position:absolute;top:0;bottom:0;min-width:8px;border-radius:99px;background:linear-gradient(90deg,var(--gold-d),var(--gold))}
 .route span{color:var(--muted);text-align:right;white-space:nowrap}
-.cur{display:flex;flex-direction:column;gap:2px;margin-top:14px}
+.cur{display:flex;flex-direction:column;gap:12px;margin-top:14px}
 .crow{display:grid;grid-template-columns:74px 1fr;align-items:center;gap:16px}
 .crow p{font-size:14.5px;line-height:1.6;color:var(--ivory)}
-.cur .eq{width:74px;text-align:center}
-.cur-note{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:14px;line-height:1.7;color:var(--muted)}
+.cur-rate{margin-top:4px;padding-top:12px;border-top:1px solid var(--line);font-family:var(--head);font-weight:700;font-size:15px;color:var(--gold);text-align:center}
+.cur-note{margin-top:-4px;font-size:14px;line-height:1.7;color:var(--muted);text-align:center}
 .coin{width:74px;height:74px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--head);font-weight:700;font-size:14px;line-height:1.3;
   box-shadow:inset 0 0 0 3px var(--panel),inset 0 0 0 4px currentColor}
 .coin small{font-family:var(--body);font-weight:400;font-size:11.5px;color:var(--muted)}
@@ -300,7 +300,21 @@ a.halo:hover .dk,a.halo:focus-visible .dk{--dy:-2cqw}
 }
 .zoom{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:16px;background:rgba(21,14,32,.93);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
 .zoom[hidden]{display:none}
-.zoom .tcard{flex:none;width:min(320px,84vw,calc((100vh - 120px) * .577))}
+.zoom .tcard{flex:none;width:min(360px,84vw,calc((100vh - 120px) * .577))}
+.zoom .fb{display:none}
+.zoom .back{cursor:pointer}
 .zoom .tcard:hover{transform:none}
 .zoom .x{min-height:44px;padding:0 28px;border:1px solid var(--gold-d);border-radius:99px;font-family:var(--head);font-weight:700;font-size:15px;color:var(--ivory)}
 .zoom .x:hover{background:rgba(210,173,98,.12)}
+
+/* 메인: 원 위의 질문 / 화면에서는 숨기는 제목 */
+.hero .ask{margin-bottom:22px;font-family:var(--head);font-weight:900;font-size:clamp(26px,6.5vw,38px);line-height:1.3;letter-spacing:.04em;
+  background:linear-gradient(180deg,#f8e6ab 10%,#cfa24f 55%,#f1d890);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* 스토리에 속한 캐릭터 카드(제라딘 56세·아드리안): 바탕색이 다름 */
+.tcard.tale .face{background:linear-gradient(165deg,#5a2540,#220d1a 72%)}
+.tcard.tale .art{background:#1a0a13}
+
+/* 카드 뽑기 결과 한 줄 */
+.res h3.luck{max-width:24em;margin-left:auto;margin-right:auto;font-family:var(--body);font-weight:700;font-size:18px;line-height:1.7;color:var(--gold);text-wrap:balance}

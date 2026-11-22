@@ -104,34 +104,16 @@ $('#filters').addEventListener('click', e => {
   const b = e.target.closest('[data-f]'); if(b) setFilter(b.dataset.f);
 });
 
-/* 카드를 찾아 가운데로 스크롤하고 뒤집어 보여 줌 (스토리 카드의 인물 버튼, 카드 뽑기, 주소 #id) */
-function showCard(id){
-  if(!byId(id) && !STORIES.some(s => s.id === id)) return;
-  if(small.matches){ openZoom(id); return; }
-  const need = byId(id) ? 'char' : 'story';
-  if(filter !== 'all' && filter !== need) setFilter('all');
-  const el = $(`.tcard[data-id="${id}"]`, rail); if(!el) return;
-  setTimeout(() => {
-    el.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'center', inline:'center'});
-    setTimeout(() => el.setFlip(true), reduce ? 0 : 450);
-  }, 250);
-}
-rail.addEventListener('click', e => {
-  const a = e.target.closest('a[data-char]'); if(!a) return;
-  e.preventDefault(); showCard(a.dataset.char);
-});
-
-/* 작은 화면(3열)에서는 카드를 누르면 크게 띄워서 뒷면까지 읽을 수 있게 함 */
-const small = matchMedia('(max-width:639px)');
+/* 카드를 누르면 가운데에 크게 띄움 : 앞면 → (누르면) 뒷면 → (누르면) 닫힘 */
 const zoom = $('#zoom'), zoomCard = $('#zoomCard');
 let lastFocus = null;
+const exists = id => byId(id) || STORIES.some(s => s.id === id);
 function openZoom(id){
-  const c = byId(id), s = STORIES.find(x => x.id === id);
-  const card = c ? makeCard(c) : makeStoryCard(s);
-  zoomCard.replaceChildren(card);
+  if(!exists(id)) return;
+  const c = byId(id);
+  zoomCard.replaceChildren(c ? makeCard(c) : makeStoryCard(STORIES.find(x => x.id === id)));
   if(zoom.hidden){ lastFocus = document.activeElement; document.body.style.overflow = 'hidden'; }
   zoom.hidden = false;
-  setTimeout(() => card.setFlip(true), reduce ? 0 : 150);
   $('#zoomX').focus();
 }
 function closeZoom(){
@@ -139,19 +121,21 @@ function closeZoom(){
   if(lastFocus && lastFocus.focus) lastFocus.focus();
 }
 rail.addEventListener('click', e => {
-  if(!small.matches) return;
   const b = e.target.closest('.flip'); if(!b) return;
   e.stopPropagation(); openZoom(b.closest('.tcard').dataset.id);
 }, true);
 zoom.addEventListener('click', e => {
   const a = e.target.closest('a[data-char]');
-  if(a){ e.preventDefault(); openZoom(a.dataset.char); return; }
-  if(e.target === zoom || e.target.closest('#zoomX')) closeZoom();
+  if(a){ e.preventDefault(); openZoom(a.dataset.char); return; }   /* 스토리 카드 뒷면의 캐릭터 버튼 */
+  if(e.target.closest('#zoomX')){ closeZoom(); return; }
+  if(e.target.closest('a, button')) return;                        /* 앞면 누르기(뒤집기)·대화하러 가기 링크는 그대로 */
+  if(e.target.closest('.back') || !e.target.closest('.tcard')) closeZoom();   /* 뒷면이나 바깥을 누르면 닫힘 */
 });
 addEventListener('keydown', e => { if(e.key === 'Escape' && !zoom.hidden) closeZoom(); });
+
 function openFromHash(){
   const id = decodeURIComponent(location.hash.slice(1));
-  if(id) showCard(id);
+  if(id) openZoom(id);
 }
 setFilter('all');
 openFromHash();

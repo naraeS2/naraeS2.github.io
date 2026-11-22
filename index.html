@@ -52,6 +52,8 @@
 
 <!-- 히어로 : 카드 뽑기 -->
 <div class="hero">
+  <h1 class="sr">아르카나 · 벨루아 대륙의 카드들</h1>
+  <p class="ask">오늘의 카드는?</p>
   <a class="halo" href="draw.html" aria-label="카드 뽑으러 가기">
     <svg class="ring" viewBox="0 0 600 600" aria-hidden="true">
       <circle cx="300" cy="300" r="292" fill="none" stroke="#d2ad62" stroke-width="1.6"/>
@@ -67,13 +69,7 @@
     <div class="ringtext" id="ringtext" aria-hidden="true"></div>
     <div class="disc"><div class="deck" aria-hidden="true"><span class="dk"></span><span class="dk"></span><span class="dk"></span></div></div>
   </a>
-  <h1>아르카나</h1>
-  <p class="en">Arcana of Belua</p>
   <p class="tag">✦<br>벨루아 대륙의 누군가가 기다립니다.</p>
-  <div class="cta">
-    <a class="btn main" href="draw.html">카드 뽑기 →</a>
-    <a class="btn ghost" href="#world">벨루아 대륙 둘러보기 ↓</a>
-  </div>
 </div>
 
 <!-- 세계 -->
@@ -102,7 +98,7 @@
       <button class="pdetail" id="pdetail" type="button" hidden></button>
     </div>
 
-    <h3 class="sub-h">여섯 개의 땅</h3>
+    <h3 class="sub-h">벨루아 대륙 지도</h3>
     <p class="sub-p">지도 위의 땅이나 아래의 이름을 눌러 보세요.</p>
     <div class="atlas">
       <div>
@@ -128,11 +124,10 @@
       <div class="box">
         <h3>화폐</h3>
         <div class="cur" role="group" aria-label="1금화는 100은화, 1은화는 100동화">
-          <div class="crow"><div class="coin g">금화<small>1</small></div><p>고가 마도구·유물, 귀족 계약</p></div>
-          <span class="eq">= 100</span>
-          <div class="crow"><div class="coin s">은화<small>1</small></div><p>일상의 거래</p></div>
-          <span class="eq">= 100</span>
-          <div class="crow"><div class="coin c">동화<small>1</small></div><p>작은 값의 일상 거래</p></div>
+          <div class="crow"><div class="coin g">금화</div><p>고가 마도구·유물, 귀족 계약</p></div>
+          <div class="crow"><div class="coin s">은화</div><p>일상의 거래</p></div>
+          <div class="crow"><div class="coin c">동화</div><p>작은 값의 일상 거래</p></div>
+          <p class="cur-rate">1 금화 = 100 은화, 1 은화 = 100 동화</p>
           <p class="cur-note">계약과 신용 중심의 상업이라 위조 계약과 사기, 밀수도 함께 존재합니다.</p>
         </div>
       </div>

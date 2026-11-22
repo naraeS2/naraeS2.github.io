@@ -26,6 +26,7 @@ function makeCard(c){
   el.className = 'tcard';
   el.dataset.id = c.id;
   el.style.setProperty('--a', c.a);
+  if(STORIES.some(s => (s.who || []).includes(c.id))) el.classList.add('tale');   /* 스토리에 속한 캐릭터 카드는 바탕색이 다름 */
   const ver = c.ver ? `<span class="ver">${c.ver}</span>` : '';
   const ageLine = c.ver && /세/.test(c.ver) ? c.ver : [c.age, c.ver].filter(Boolean).join(' · ');
   el.innerHTML = `
@@ -55,7 +56,7 @@ function makeCard(c){
 }
 
 /* ----- 스토리 타로 카드 ----- */
-const whoName = c => c.name + (c.ver && /세/.test(c.ver) ? ' (' + c.age + ')' : '');
+const whoName = c => c.name + (CHARS.filter(x => x.name === c.name).length > 1 ? ' (' + c.age + ')' : '');   /* 이름이 같은 카드는 나이를 붙여 구분 */
 function makeStoryCard(s){
   const el = document.createElement('article');
   el.className = 'tcard story';
