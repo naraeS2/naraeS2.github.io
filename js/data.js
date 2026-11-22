@@ -30,13 +30,13 @@ const CHARS = [
   {id:'adrian', arc:'major', num:'XIX', en:'The Sun', name:'아드리안 아르카나', ver:'찬란한 불협화음', role:'아르카나 제국의 황태자', age:'26세',
    hook:'한낮의 태양 같은 황태자. 그늘진 궁정에 불쑥 들어선 빛.', kw:['생명력','낙관','자신감','희망'], a:'#f0c267', img:'https://i.ibb.co/fYr4S6BD/image.png',
    link:STORY_LINK},
-  {id:'kairen', arc:'minor', num:'Ace', en:'Ace of Wands', name:'카이렌 바르트', role:'변경 개척단장 · 화염술사', age:'36세',
+  {id:'kairen', arc:'minor', num:'Wands', en:'Ace of Wands', name:'카이렌 바르트', role:'변경 개척단장 · 화염술사', age:'36세',
    hook:'변경의 지도 빈칸을 향해 가장 먼저 불을 붙이는 사람.', kw:['열정','창조','추진력','야망'], a:'#e0805a', img:'https://i.ibb.co/KcvbvWDv/image.png',
    link:'https://litychat.com/share/content/223b8ff9-f103-4276-bc5e-f7b6508849d9'},
-  {id:'rainel', arc:'minor', num:'Kn', en:'Knight of Swords', name:'라이넬 에버하르트', role:'황실 근위 기사단장 · 붉은 칼날', age:'32세',
+  {id:'rainel', arc:'minor', num:'Swords', en:'Knight of Swords', name:'라이넬 에버하르트', role:'황실 근위 기사단장 · 붉은 칼날', age:'32세',
    hook:'일에서는 빈틈없는 기사단장, 연애에서는 거침없는 직진. 곤란한 쪽은 언제나 상대다.', kw:['직진','질서','충성','서툰 진심'], a:'#cf5d58', img:'https://i.ibb.co/hJp8hY8S/image.png',
    link:'https://litychat.com/share/content/ffe6a322-8747-4606-9a14-b2536a7ea65f'},
-  {id:'rowen', arc:'minor', num:'Kn', en:'Knight of Cups', name:'로웬 델마레', role:'초대 사절 · 궁정 악사', age:'26세',
+  {id:'rowen', arc:'minor', num:'Cups', en:'Knight of Cups', name:'로웬 델마레', role:'초대 사절 · 궁정 악사', age:'26세',
    hook:'초대장을 전하는 다정한 악사. 진심과 예의의 경계는 아직 서툴다.', kw:['초대','낭만','다정','서툰 감정'], a:'#9dbb9a', img:'https://i.ibb.co/cctYr0x7/image.png',
    link:'https://litychat.com/share/content/da0fb314-2232-4be9-9908-215598891072'}
 ];
