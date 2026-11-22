@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>아르카나 | 벨루아 대륙의 카드들</title>
-<meta name="description" content="카드 한 장에 한 사람, 한 사람에 하나의 이야기. 벨루아 대륙 아르카나 제국의 AI 캐릭터와 스토리를 만나 보세요.">
+<meta name="description" content="카드 한 장에 한 사람, 한 사람에 하나의 이야기. 벨루아 대륙 아르카나 제국의 세계관과 AI 캐릭터, 스토리를 만나 보세요.">
 <meta property="og:title" content="아르카나 | 벨루아 대륙의 카드들">
 <meta property="og:description" content="별이 머무는 땅에서 만나는 타로 캐릭터와 이야기.">
 <meta property="og:image" content="https://i.ibb.co/F4XCshdC/image.png">
@@ -12,194 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500;1,700&family=Gowun+Batang:wght@400;700&family=Noto+Serif+KR:wght@500;700;900&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#150e20; --bg2:#1d1430; --panel:#241a38; --line:#4b3b63;
-  --gold:#d2ad62; --gold-d:#8f7035; --ivory:#f1e5cd; --muted:#a99dba;
-  --rose:#d99aa5; --sage:#93b9a3;
-  --head:'Noto Serif KR',serif; --body:'Gowun Batang','Noto Serif KR',serif; --lat:'Cormorant Garamond',serif;
-  --map:url('https://i.ibb.co/F4XCshdC/image.png');
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:70px;-webkit-text-size-adjust:100%}
-body{
-  background:
-    radial-gradient(ellipse 80% 50% at 50% -8%,#3b2458 0%,transparent 70%),
-    radial-gradient(circle at 92% 38%,rgba(217,154,165,.09),transparent 38%),
-    radial-gradient(circle at 6% 70%,rgba(147,185,163,.07),transparent 36%),
-    var(--bg);
-  color:var(--ivory);font-family:var(--body);font-size:17px;line-height:1.85;overflow-x:hidden;
-}
-button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-
-/* ---------- 상단 ---------- */
-.top{position:sticky;top:0;z-index:30;background:rgba(21,14,32,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.top .in{max-width:1100px;margin:0 auto;height:56px;padding:0 18px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.logo{display:flex;align-items:center;gap:8px;font-family:var(--head);font-weight:900;font-size:18px;color:var(--gold);text-decoration:none}
-.logo svg{width:16px;height:16px;fill:var(--gold)}
-.top nav{display:flex;align-items:center;gap:0;white-space:nowrap}
-.logo{white-space:nowrap}
-.top nav a{font-size:14.5px;color:var(--muted);text-decoration:none;padding:8px 10px;transition:color .2s}
-.top nav a:hover{color:var(--ivory)}
-.pill{border:1px solid var(--gold-d);color:var(--gold);padding:5px 13px;border-radius:99px;font-size:14px;margin-left:4px;white-space:nowrap;transition:background .2s}
-@media(max-width:480px){.top .in{padding:0 12px}.logo{font-size:16px}.top nav a{padding:8px 7px;font-size:14px}.pill{padding:5px 11px;font-size:13.5px}}
-.pill:hover{background:rgba(210,173,98,.14)}
-
-/* ---------- 히어로 ---------- */
-.hero{padding:34px 0 20px;text-align:center}
-.halo{position:relative;width:min(540px,90%);aspect-ratio:1;margin:0 auto;--px:0px;--py:0px}
-.ring{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.spin{transform-origin:300px 300px;animation:spin 220s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.ring text{font-family:var(--lat);font-style:italic;font-size:21px;fill:var(--gold)}
-.disc{
-  position:absolute;inset:12.5%;border-radius:50%;
-  background:var(--map) 50% 46%/cover,var(--bg2);
-  box-shadow:0 0 0 3px var(--bg),0 0 0 4.5px var(--gold),0 0 70px rgba(210,173,98,.22);
-  transform:translate(var(--px),var(--py));transition:transform .25s ease-out;
-}
-.disc::after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,transparent 52%,rgba(21,14,32,.6))}
-.hero h1{margin-top:26px;font-family:var(--head);font-weight:900;font-size:clamp(40px,10vw,68px);line-height:1.2;letter-spacing:.06em;
-  background:linear-gradient(180deg,#f8e6ab 10%,#cfa24f 55%,#f1d890);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero .en{font-family:var(--lat);font-style:italic;font-size:22px;color:var(--rose);margin-top:2px}
-.hero .tag{margin:16px auto 28px;max-width:34ch;text-wrap:balance;color:var(--muted);font-size:17px}
-.cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 26px;border-radius:99px;font-family:var(--head);font-weight:700;font-size:15.5px;text-decoration:none;transition:transform .2s,background .2s}
-.btn.main{background:linear-gradient(180deg,#e2c079,#b88f43);color:#1d1226;box-shadow:0 6px 24px rgba(210,173,98,.25)}
-.btn.main:hover{transform:translateY(-2px)}
-.btn.ghost{border:1px solid var(--gold-d);color:var(--ivory)}
-.btn.ghost:hover{background:rgba(210,173,98,.12)}
-.hero .halo,.hero h1,.hero .en,.hero .tag,.hero .cta{animation:rise 1.1s cubic-bezier(.2,.7,.2,1) both}
-.hero h1{animation-delay:.15s}.hero .en{animation-delay:.25s}.hero .tag{animation-delay:.35s}.hero .cta{animation-delay:.45s}
-@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-
-/* ---------- 섹션 공통 ---------- */
-section{padding:84px 0 8px}
-.head{text-align:center;margin-bottom:34px}
-.head h2{font-family:var(--head);font-weight:700;font-size:clamp(26px,5.5vw,36px);line-height:1.4}
-.head p{color:var(--muted);margin-top:4px;font-size:16px}
-.fl{display:block;width:200px;height:20px;margin:12px auto 0;color:var(--gold)}
-
-/* ---------- 지도 ---------- */
-.atlas{display:grid;gap:22px;align-items:start}
-.atlas>*{min-width:0}
-@media(min-width:900px){.atlas{grid-template-columns:1.4fr 1fr}}
-.mapwrap{position:relative;border:1px solid var(--gold-d);background:var(--bg2);box-shadow:0 0 0 5px var(--bg),0 0 0 6px var(--line)}
-.mapwrap img{display:block;width:100%;height:auto}
-.hs{position:absolute;transform:translate(-50%,-50%);border-radius:50%;border:1px solid transparent;transition:background .25s,border-color .25s}
-.hs:hover,.hs.on{background:rgba(210,173,98,.2);border-color:var(--gold)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-@media(max-width:899px){.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}.chips::-webkit-scrollbar{display:none}}
-.chip{white-space:nowrap;border:1px solid var(--line);border-radius:99px;padding:5px 15px;font-size:14.5px;color:var(--muted);transition:all .2s}
-.chip:hover{color:var(--ivory)}
-.chip[aria-pressed="true"]{border-color:var(--gold);color:#1d1226;background:var(--gold)}
-.panel{border:1px solid var(--line);background:var(--panel);padding:24px 22px;position:relative;min-height:260px}
-.panel::before{content:"";position:absolute;inset:5px;border:1px solid rgba(210,173,98,.25);pointer-events:none}
-.panel h3{font-family:var(--head);font-size:24px;font-weight:700;color:var(--gold);line-height:1.4}
-.panel .where{font-size:14px;color:var(--muted);margin-bottom:10px}
-.panel p{font-size:16px;line-height:1.85}
-.panel .hook{margin-top:12px;color:var(--rose);font-style:italic;font-size:15px}
-.panel .days{display:inline-block;margin-top:14px;border:1px solid var(--line);border-radius:99px;padding:1px 12px;font-size:13px;color:var(--muted)}
-
-/* ---------- 카드 ---------- */
-.filters{display:flex;justify-content:center;gap:8px;margin-bottom:26px;flex-wrap:wrap}
-.hint{display:none;text-align:center;color:var(--muted);font-size:13.5px;margin:-10px 0 4px}
-.rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:14px 20px 26px;scrollbar-width:none;scroll-padding:0 20px}
-.rail::-webkit-scrollbar{display:none}
-@media(max-width:899px){.hint{display:block}}
-@media(min-width:900px){.rail{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:26px 22px;overflow:visible;padding:14px 0 20px}}
-.tcard{flex:0 0 min(74%,300px);scroll-snap-align:center;container-type:inline-size;aspect-ratio:300/520;perspective:1400px;position:relative}
-@media(min-width:900px){.tcard{flex:none;transition:transform .3s}.tcard:hover{transform:translateY(-6px)}}
-.inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .85s cubic-bezier(.2,.7,.2,1)}
-.tcard.flipped .inner{transform:rotateY(180deg)}
-.face{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;border-radius:4.5cqw;overflow:hidden;
-  background:linear-gradient(165deg,#2f2248,#1a1229 70%);
-  box-shadow:inset 0 0 0 1.6cqw var(--bg),inset 0 0 0 1.9cqw var(--gold-d),0 14px 34px rgba(0,0,0,.45)}
-.back{transform:rotateY(180deg)}
-.flip{position:absolute;inset:0;z-index:3;width:100%}
-.cn{position:absolute;width:13cqw;height:13cqw;color:var(--a);z-index:2;pointer-events:none}
-.cn.a{top:3.4cqw;left:3.4cqw}.cn.b{top:3.4cqw;right:3.4cqw;transform:scaleX(-1)}
-.cn.c{bottom:3.4cqw;left:3.4cqw;transform:scaleY(-1)}.cn.d{bottom:3.4cqw;right:3.4cqw;transform:scale(-1)}
-.art{position:absolute;top:9cqw;left:12cqw;width:76cqw;height:112cqw;border-radius:38cqw 38cqw 3cqw 3cqw;overflow:hidden;
-  background:#120b1d;box-shadow:0 0 0 1.1cqw #150e20,0 0 0 1.7cqw var(--a)}
-.art img{width:100%;height:100%;object-fit:cover;display:block}
-.ph{position:relative;width:100%;height:100%;
-  background:
-   radial-gradient(circle at 50% 36%,color-mix(in srgb,var(--a) 60%,transparent),transparent 62%),
-   repeating-conic-gradient(from 0deg at 50% 36%,rgba(255,255,255,.06) 0 4deg,transparent 4deg 9deg),
-   linear-gradient(#2a1e40,#150e20)}
-.ph i{position:absolute;left:0;right:0;top:34%;text-align:center;font-family:var(--lat);font-style:italic;font-weight:700;font-size:30cqw;line-height:1;color:rgba(241,229,205,.28)}
-.ph svg{position:absolute;left:50%;top:15%;width:9cqw;height:9cqw;transform:translateX(-50%);fill:var(--a)}
-.plate{position:absolute;left:0;right:0;top:124cqw;display:flex;flex-direction:column;align-items:center;text-align:center;color:var(--ivory)}
-.plate .num{font-family:var(--lat);font-weight:700;font-size:11cqw;line-height:1;color:var(--a)}
-.plate .nm{font-family:var(--head);font-weight:700;font-size:7.6cqw;line-height:1.3;margin-top:1.6cqw}
-.plate .en{font-family:var(--lat);font-style:italic;font-size:6.2cqw;color:var(--muted);line-height:1.2}
-.back{padding:15cqw 13cqw 12cqw;display:flex;flex-direction:column;text-align:center;overflow:auto}
-.back .role{font-size:5.2cqw;color:var(--a);line-height:1.5}
-.back h3{font-family:var(--head);font-weight:700;font-size:8.6cqw;line-height:1.35;margin-top:1.5cqw}
-.back .age{font-family:var(--lat);font-style:italic;font-size:5.8cqw;color:var(--muted)}
-.back .fl{width:60%;height:5cqw;margin:3cqw auto;color:var(--a)}
-.back .hook{font-size:5.5cqw;line-height:1.75;color:var(--ivory)}
-.kw{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:1.6cqw;margin-top:4cqw}
-.kw li{border:1px solid color-mix(in srgb,var(--a) 70%,transparent);color:var(--a);border-radius:99px;padding:.4cqw 3.2cqw;font-size:4.6cqw}
-.acts{margin-top:auto;padding-top:4cqw;display:flex;flex-direction:column;gap:2cqw;align-items:center;position:relative;z-index:4}
-.go{display:inline-flex;align-items:center;justify-content:center;min-height:11cqw;padding:0 7cqw;border-radius:99px;background:var(--a);color:#1a1229;font-family:var(--head);font-weight:700;font-size:5cqw;text-decoration:none}
-.fb{font-size:4.6cqw;color:var(--muted);padding:1.5cqw 4cqw;position:relative;z-index:4}
-
-/* ---------- 이야기 ---------- */
-.stories{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}
-.poster{position:relative;border:1px solid var(--gold-d);background:linear-gradient(170deg,#2a1d42,#1a1229);padding:34px 26px 28px;box-shadow:0 0 0 5px var(--bg),0 0 0 6px var(--line)}
-.poster::before{content:"";position:absolute;inset:7px;border:1px solid rgba(210,173,98,.22);pointer-events:none}
-.poster .st{position:absolute;top:14px;right:16px;font-size:12.5px;border:1px solid var(--gold-d);color:var(--gold);border-radius:99px;padding:0 10px}
-.poster.soon .st{border-color:var(--line);color:var(--muted)}
-.poster h3{font-family:var(--head);font-weight:900;font-size:26px;line-height:1.35;color:var(--gold);margin-top:6px}
-.poster .one{font-style:italic;color:var(--rose);margin:6px 0 12px;font-size:16px}
-.poster p{font-size:15.5px;line-height:1.8}
-.poster .gen{margin-top:12px;color:var(--muted);font-size:13.5px}
-.who{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.who button{border:1px solid var(--line);border-radius:99px;padding:4px 14px 4px 10px;font-size:14px;display:flex;gap:8px;align-items:center;transition:border-color .2s}
-.who button:hover{border-color:var(--gold)}
-.who b{font-family:var(--lat);font-style:italic;color:var(--gold);font-size:17px;line-height:1}
-.veil{display:flex;gap:10px;margin-top:20px}
-.veil span{flex:1;aspect-ratio:3/5;border:1px solid var(--gold-d);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--lat);font-style:italic;font-weight:700;font-size:24px;color:rgba(210,173,98,.6);
-  background:repeating-conic-gradient(from 0deg at 50% 50%,rgba(210,173,98,.08) 0 6deg,transparent 6deg 12deg),#1c1330}
-
-/* ---------- 마무리 ---------- */
-.end{text-align:center;padding:90px 20px 60px}
-.end h2{font-family:var(--head);font-weight:700;font-size:clamp(24px,5vw,32px);line-height:1.5;margin-bottom:22px}
-footer{border-top:1px solid var(--line);padding:26px 20px 40px;text-align:center;color:var(--muted);font-size:13.5px;line-height:2}
-
-/* ---------- 카드 뽑기 ---------- */
-dialog{margin:auto;border:1px solid var(--gold-d);background:var(--bg2);color:var(--ivory);width:min(440px,92%);max-height:92dvh;overflow:auto;padding:30px 20px 26px;text-align:center;border-radius:6px;box-shadow:0 0 0 5px var(--bg),0 0 0 6px var(--line),0 30px 80px rgba(0,0,0,.6)}
-dialog::backdrop{background:rgba(10,6,18,.82)}
-dialog h2{font-family:var(--head);font-size:22px;font-weight:700;line-height:1.5}
-dialog .sub{color:var(--muted);font-size:15px;margin:2px 0 20px}
-.x{position:absolute;top:8px;right:12px;font-size:26px;color:var(--muted);width:40px;height:40px}
-.deck{display:flex;justify-content:center;gap:10px}
-.dk{width:30%;aspect-ratio:300/520;border:1px solid var(--gold);border-radius:10px;transition:transform .3s;
-  background:radial-gradient(circle at 50% 50%,rgba(210,173,98,.35) 0 4%,transparent 5% 18%,rgba(210,173,98,.18) 19% 20%,transparent 21%),
-   repeating-conic-gradient(from 0deg at 50% 50%,rgba(210,173,98,.1) 0 7deg,transparent 7deg 14deg),#241a38;
-  box-shadow:inset 0 0 0 5px var(--bg2),inset 0 0 0 6px var(--gold-d)}
-.dk:nth-child(1){transform:rotate(-6deg) translateY(6px)}.dk:nth-child(3){transform:rotate(6deg) translateY(6px)}
-.dk:hover{transform:translateY(-8px) rotate(0)}
-.res .tcard{width:min(240px,70%);margin:0 auto;flex:none}
-.res .tcard.pop{animation:pop .8s cubic-bezier(.2,.7,.2,1)}
-@keyframes pop{from{opacity:0;transform:scale(.8) rotate(-5deg)}to{opacity:1;transform:none}}
-.res h3{font-family:var(--head);font-size:19px;margin-top:20px;line-height:1.5}
-.res p{color:var(--muted);font-size:14.5px;margin-top:2px}
-.res .cta{margin-top:20px}
-.res .btn{min-height:44px;padding:0 20px;font-size:14.5px}
-
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .spin,.hero *,.res .tcard.pop{animation:none!important}
-  .inner,.disc,.tcard{transition:none!important}
-}
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -229,26 +42,22 @@ dialog .sub{color:var(--muted);font-size:15px;margin:2px 0 20px}
     <a class="logo" href="#top"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#star8"/></svg>아르카나</a>
     <nav aria-label="바로가기">
       <a href="#world">세계</a>
-      <a href="#cast">인물</a>
-      <a href="#tales">이야기</a>
-      <button class="pill" type="button" data-draw>카드 뽑기</button>
+      <a href="characters.html">인물</a>
+      <a href="stories.html">이야기</a>
+      <a class="pill" href="#draw">카드 뽑기</a>
     </nav>
   </div>
 </header>
 
 <main id="top">
 
-<!-- 히어로 -->
+<!-- 히어로 : 주소로 들어오면 가장 먼저 보이는 세계 소개 -->
 <div class="hero">
   <div class="halo" id="halo" role="img" aria-label="벨루아 대륙 지도를 감싼 타로 로마 숫자 고리">
     <svg class="ring" viewBox="0 0 600 600" aria-hidden="true">
       <circle cx="300" cy="300" r="292" fill="none" stroke="#d2ad62" stroke-width="1.6"/>
       <circle cx="300" cy="300" r="284" fill="none" stroke="#8f7035" stroke-width="1"/>
       <circle cx="300" cy="300" r="238" fill="none" stroke="#8f7035" stroke-width="1"/>
-      <g class="spin">
-        <path id="rp" d="M300 300m-262 0a262 262 0 1 1 524 0a262 262 0 1 1-524 0" fill="none"/>
-        <text><textPath href="#rp" textLength="1630" lengthAdjust="spacing">0 ✦ I ✦ II ✦ III ✦ IV ✦ V ✦ VI ✦ VII ✦ VIII ✦ IX ✦ X ✦ XI ✦ XII ✦ XIII ✦ XIV ✦ XV ✦ XVI ✦ XVII ✦ XVIII ✦ XIX ✦ XX ✦ XXI ✦</textPath></text>
-      </g>
       <g fill="#d2ad62">
         <use href="#star8" x="288" y="-6" width="24" height="24"/>
         <use href="#star8" x="288" y="582" width="24" height="24"/>
@@ -256,14 +65,15 @@ dialog .sub{color:var(--muted);font-size:15px;margin:2px 0 20px}
         <use href="#star8" x="582" y="288" width="24" height="24"/>
       </g>
     </svg>
+    <div class="ringtext" id="ringtext" aria-hidden="true"></div>
     <div class="disc"></div>
   </div>
   <h1>아르카나</h1>
   <p class="en">Arcana of Belua</p>
-  <p class="tag">카드 한 장에 한 사람, 한 사람에 하나의 이야기.</p>
+  <p class="tag">별이 머무는 땅, 벨루아 대륙.<br>카드 한 장에 한 사람, 한 사람에 하나의 이야기.</p>
   <div class="cta">
-    <button class="btn main" type="button" data-draw>오늘의 카드 뽑기</button>
-    <a class="btn ghost" href="#cast">인물 모두 보기</a>
+    <a class="btn main" href="#world">세계 둘러보기</a>
+    <a class="btn ghost" href="#draw">오늘의 카드 뽑기</a>
   </div>
 </div>
 
@@ -275,6 +85,36 @@ dialog .sub{color:var(--muted);font-size:15px;margin:2px 0 20px}
       <p>별이 머무는 땅, 그리고 아직 밝혀지지 않은 이야기.</p>
       <svg class="fl" aria-hidden="true"><use href="#flourish"/></svg>
     </div>
+    <div class="intro">
+      <p>벨루아 대륙 한가운데, 마법이 질서가 된 제국 <b>아르카나</b>가 있습니다. 수도 아르켄시아를 중심으로 네 권역과 변경이 방사형으로 뻗어 있고, 황실과 귀족, 성좌교회, 황립 마도원, 황립 길드 연합이 사회를 이룹니다.</p>
+      <p>사회는 인간이 중심이지만 마법과 마도구, 마물과 정령, 고대 문명의 유적이 일상 곁에 있습니다. 신분의 영향이 크되 능력과 공적으로 오를 길도 열려 있습니다.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><h3>르네상스의 시대</h3><p>석조 궁전과 대성당, 기계식 시계와 인쇄술, 항해술. 전자기기와 대량생산은 없습니다. 소형 증기 장비는 변경 개척지에만 소수 존재합니다.</p></div>
+      <div class="fact"><h3>만능이 아닌 마법</h3><p>위력이 클수록 대가가 큽니다. 숙련자도 실패하고, 죽은 이를 되살리거나 과거를 온전히 고칠 수는 없습니다.</p></div>
+      <div class="fact"><h3>이어지는 사회</h3><p>신분과 혈통의 영향이 크지만 능력과 재산, 공적으로 오르는 길도 있습니다. 계약과 신용, 정보가 곧 힘입니다.</p></div>
+      <div class="fact"><h3>드러나지 않은 땅</h3><p>제국 바깥은 지도에 적히지 않았고, 고대 문명이 사라진 이유도 아직 모릅니다.</p></div>
+    </div>
+
+    <h3 class="sub-h">제국을 지탱하는 네 개의 축</h3>
+    <p class="sub-p">서로 견제하고 기대며 제국을 움직입니다. 누구도 한 덩어리가 아닙니다.</p>
+    <div class="pillars">
+      <div class="pillar"><span class="rn">I</span><h3>황실과 귀족</h3>
+        <p>통치·행정·군사·외교를 맡는 지배층. 작위와 가문, 영지, 동맹이 지위를 좌우합니다.</p>
+        <p>연회와 무도회, 혼인 동맹, 후원으로 정치가 이루어집니다. 모든 귀족이 같은 입장은 아닙니다.</p></div>
+      <div class="pillar"><span class="rn">II</span><h3>성좌교회</h3>
+        <p>신앙과 의례, 교육, 의료, 구호를 담당합니다. 대성당과 수도원에 고문서와 유물, 역사 기록을 보관합니다.</p>
+        <p>지역에 따라 영향력이 다르고, 성직자마다 신념과 정치적 입장이 다릅니다.</p></div>
+      <div class="pillar"><span class="rn">III</span><h3>황립 마도원</h3>
+        <p>마법 연구·교육·자격 인증 기관. 마도구 연구와 고대 유적 조사를 맡습니다.</p>
+        <p>위험한 마법과 유물은 허가와 통제 대상이며, 소속이라고 모든 마법을 쓸 수 있는 것은 아닙니다.</p></div>
+      <div class="pillar"><span class="rn">IV</span><h3>황립 길드 연합</h3>
+        <p>상업·생산·기술·탐험·유물 거래 길드의 협력 체계. 회원 자격과 거래 규칙을 관리하고 의뢰와 계약을 중개합니다.</p>
+        <p>무소속은 일부 의뢰와 거래에서 불이익을 받을 수 있습니다.</p></div>
+    </div>
+
+    <h3 class="sub-h">여섯 개의 땅</h3>
+    <p class="sub-p">지도 위의 땅이나 아래의 이름을 눌러 보세요.</p>
     <div class="atlas">
       <div>
         <div class="mapwrap" id="mapwrap">
@@ -284,42 +124,65 @@ dialog .sub{color:var(--muted);font-size:15px;margin:2px 0 20px}
       </div>
       <aside class="panel" id="panel" aria-live="polite"></aside>
     </div>
+
+    <div class="twin">
+      <div class="box">
+        <h3>수도에서 얼마나 멀까</h3>
+        <p>마차 기준 일수입니다. 서부와 남서 해안은 배가 더 빠를 수 있습니다.</p>
+        <div class="route"><b>남부</b><div class="bar"><i style="left:21.4%;width:7.1%"></i></div><span>3~4일</span></div>
+        <div class="route"><b>동부</b><div class="bar"><i style="left:28.6%;width:7.1%"></i></div><span>4~5일</span></div>
+        <div class="route"><b>서부</b><div class="bar"><i style="left:35.7%;width:7.1%"></i></div><span>5~6일</span></div>
+        <div class="route"><b>북부</b><div class="bar"><i style="left:42.9%;width:14.3%"></i></div><span>6~8일</span></div>
+        <div class="route"><b>변경</b><div class="bar"><i style="left:50%;width:50%"></i></div><span>7~14일</span></div>
+        <div class="route"><b>라르고</b><div class="bar"><i style="left:71.4%;width:28.6%"></i></div><span>10일 이상</span></div>
+      </div>
+      <div class="box">
+        <h3>동화·은화·금화</h3>
+        <p>일상은 동화와 은화, 고가 마도구·유물·귀족 계약은 금화로 오갑니다.</p>
+        <div class="coins" aria-label="1금화는 100은화, 1은화는 100동화">
+          <div class="coin g">금화<small>1</small></div><span class="eq">= 100</span>
+          <div class="coin s">은화<small>1</small></div><span class="eq">= 100</span>
+          <div class="coin c">동화<small>1</small></div>
+        </div>
+        <p style="margin:0">계약과 신용 중심의 상업이라 위조 계약과 사기, 밀수도 함께 존재합니다.</p>
+      </div>
+    </div>
+
+    <div class="lore" id="lore">
+      <div class="head">
+        <h2>제국의 안쪽</h2>
+        <p>궁금한 항목을 눌러 펼쳐 보세요.</p>
+        <svg class="fl" aria-hidden="true"><use href="#flourish"/></svg>
+      </div>
+      <div class="chips tabs" id="loreTabs" role="group" aria-label="설정 분류"></div>
+      <div id="loreList"></div>
+    </div>
   </div>
 </section>
 
-<!-- 인물 -->
-<section id="cast">
+<!-- 오늘의 카드 뽑기 -->
+<section id="draw">
   <div class="wrap">
-    <div class="head">
-      <h2>카드 속의 사람들</h2>
-      <p>카드를 눌러 뒤집어 보세요.</p>
-      <svg class="fl" aria-hidden="true"><use href="#flourish"/></svg>
+    <div class="drawbox">
+      <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><use href="#star8"/></svg>
+      <div id="dPick">
+        <h2>오늘의 카드</h2>
+        <p class="sub">마음이 가는 카드를 한 장 고르세요.</p>
+        <div class="deck" id="deck"></div>
+      </div>
+      <div class="res" id="res" hidden aria-live="polite"></div>
     </div>
-    <div class="filters" id="filters" role="group" aria-label="카드 종류">
-      <button class="chip" type="button" data-f="all" aria-pressed="true">전체</button>
-      <button class="chip" type="button" data-f="major" aria-pressed="false">대아르카나</button>
-      <button class="chip" type="button" data-f="minor" aria-pressed="false">소아르카나</button>
-    </div>
-    <p class="hint">옆으로 넘겨 카드를 확인하세요</p>
-  </div>
-  <div class="wrap"><div class="rail" id="rail" aria-label="인물 카드 목록"></div></div>
-</section>
-
-<!-- 이야기 -->
-<section id="tales">
-  <div class="wrap">
-    <div class="head">
-      <h2>펼쳐지는 이야기</h2>
-      <p>카드들이 한 무대에 모일 때, 이야기가 시작됩니다.</p>
-      <svg class="fl" aria-hidden="true"><use href="#flourish"/></svg>
-    </div>
-    <div class="stories" id="stories"></div>
   </div>
 </section>
 
+<!-- 인물 / 이야기로 -->
 <div class="end">
-  <h2>오늘, 당신의 카드는<br>어떤 이야기를 고를까요.</h2>
-  <button class="btn main" type="button" data-draw>카드 뽑기</button>
+  <h2>이 세계에는 어떤 사람들이 살까요.</h2>
+  <p>카드 속 인물과, 그들이 모이는 이야기를 만나 보세요.</p>
+  <div class="cta">
+    <a class="btn main" href="characters.html">카드 속의 사람들 →</a>
+    <a class="btn ghost" href="stories.html">펼쳐지는 이야기 →</a>
+  </div>
 </div>
 
 </main>
@@ -329,238 +192,10 @@ dialog .sub{color:var(--muted);font-size:15px;margin:2px 0 20px}
   AI 캐릭터와 스토리를 소개하는 팬 페이지입니다.
 </footer>
 
-<dialog id="draw" aria-labelledby="dTitle">
-  <button class="x" type="button" id="dClose" aria-label="닫기">×</button>
-  <div id="dPick">
-    <h2 id="dTitle">오늘의 카드</h2>
-    <p class="sub">마음이 가는 카드를 한 장 고르세요.</p>
-    <div class="deck" id="deck"></div>
-  </div>
-  <div class="res" id="res" hidden></div>
-</dialog>
+<noscript><p style="text-align:center;padding:30px;color:#a99dba">지도와 카드를 보려면 JavaScript를 켜 주세요.</p></noscript>
 
-<noscript><p style="text-align:center;padding:30px;color:#a99dba">인물 카드와 지도를 보려면 JavaScript를 켜 주세요.</p></noscript>
-
-<script>
-/* ============================================================
-   편집 영역 : 여기만 고치면 됩니다
-   img  = 카드 일러스트 주소 (비워 두면 장식 카드로 표시)
-   link = 채팅방 주소 (비워 두면 '대화 시작' 버튼 숨김)
-   ============================================================ */
-const CHARS = [
-  {id:'ruan', arc:'major', num:'0', en:'The Fool', name:'루안 페르딘', role:'유랑 광대 · 폐허 길잡이', age:'24세',
-   hook:'금지된 유적 앞에서 만난 떠돌이 광대. 웃음 뒤에 무엇을 접어 두었을까.', kw:['시작','자유','가능성','무모함'], a:'#5fb3a6', img:'', link:''},
-  {id:'astel', arc:'major', num:'I', en:'The Magician', name:'아스텔 비르카', role:'황립 마도원 원장', age:'',
-   hook:'동전 한 닢이 당신의 합격을 정한다. 앞면일까, 뒷면일까.', kw:['창조','기술','의지','솜씨'], a:'#a98bd1', img:'', link:''},
-  {id:'jeradin', arc:'major', num:'IV', en:'The Emperor', name:'제라딘 아르카나', role:'아르카나 제국의 황제', age:'56세',
-   hook:'제국을 짊어진 오래된 금빛의 사람. 그 무게를 아는 이는 아직 없다.', kw:['권위','질서','통제','책임'], a:'#d6a84a', img:'', link:''},
-  {id:'silen', arc:'major', num:'XIII', en:'Death', name:'실렌', role:'죽음의 정령', age:'',
-   hook:'인간의 이름도 직업도 없이, 자연 속에서 끝과 시작을 지켜보는 존재.', kw:['끝맺음','전환','재생'], a:'#8fbab0', img:'', link:''},
-  {id:'nero', arc:'major', num:'XV', en:'The Devil', name:'네로', role:'장난기 많은 유혹자', age:'',
-   hook:'장난스러운 웃음, 달콤한 거래. 어디까지가 진심일까.', kw:['유혹','욕망','거래','장난'], a:'#b9d65f', img:'', link:''},
-  {id:'vesper', arc:'major', num:'XVII', en:'The Star', name:'베스페르 아르덴', role:'라르고 성의 젊은 백작', age:'23세',
-   hook:'“무슨 일로 저를 찾아오신 건가요.”', kw:['희망','영감','성광','고요'], a:'#8fb3de', img:'', link:''},
-  {id:'adrian', arc:'major', num:'XIX', en:'The Sun', name:'아드리안', role:'아르카나 제국의 황태자', age:'26세',
-   hook:'한낮의 태양 같은 황태자. 그늘진 궁정에 불쑥 들어선 빛.', kw:['생명력','낙관','자신감','희망'], a:'#f0c267', img:'', link:''},
-  {id:'kairen', arc:'minor', num:'Ace', en:'Ace of Wands', name:'카이렌 바르트', role:'개척단장 · 화염술사', age:'29세',
-   hook:'변경의 지도 빈칸을 향해 가장 먼저 불을 붙이는 사람.', kw:['열정','추진력','야망'], a:'#e0805a', img:'', link:''},
-  {id:'rainel', arc:'minor', num:'Kn', en:'Knight of Swords', name:'라이넬 에버하르트', role:'황실 근위 기사단장 · 붉은 칼날', age:'32세',
-   hook:'일에서는 빈틈없는 기사단장, 연애에서는 거침없는 직진. 곤란한 쪽은 언제나 상대다.', kw:['직진','질서','충성','서툰 진심'], a:'#cf5d58', img:'', link:''},
-  {id:'rowen', arc:'minor', num:'Kn', en:'Knight of Cups', name:'로웬 델마레', role:'초대 사절 · 궁정 악사', age:'26세',
-   hook:'초대장을 전하는 다정한 악사. 진심과 예의의 경계는 아직 서툴다.', kw:['다정','낭만','서툰 감정'], a:'#9dbb9a', img:'', link:''}
-];
-
-const STORIES = [
-  {t:'찬란한 불협화음', st:'공개', one:'삼각관계는 질색인데요!?', gen:'궁정 로맨스 · 정치 드라마',
-   txt:'오래된 금처럼 묵직한 황제와 한낮처럼 눈부신 황태자. 부자가 함께 사는 궁정에서 당신의 선택이 균형을 흔듭니다.', who:['jeradin','adrian']},
-  {t:'황제의 일기 (가제)', st:'준비 중', one:'즉위 4년째, 서른의 황제가 밤마다 적는 기록.', gen:'궁정 로맨스',
-   txt:'정무의 고단함과 간택 성화 속에서, 황제는 무엇을 일기장에만 털어놓았을까.', who:['jeradin'], soon:true},
-  {t:'대성당의 네 장 (가제)', st:'준비 중', one:'아르켄시아 대성당, 아직 뒤집히지 않은 카드.', gen:'미스터리 · 로맨스',
-   txt:'종소리가 울리는 대성당에서 네 사람의 비밀이 한 장씩 펼쳐집니다.', veil:['V','II','XIV','XX'], soon:true}
-];
-
-const REGIONS = [
-  {id:'hwangdo', n:'황도권', w:'수도 아르켄시아 · 중앙 평야', d:'',
-   t:'두 강이 합류하는 구릉 위의 도시. 인쇄소와 시계 장인 거리, 마도구 상점가, 환전과 신용장이 발달했습니다. 이곳의 싸움은 검이 아니라 가문 계약과 후원 다툼으로 벌어집니다.', h:'', x:50,y:44,w2:24,h2:12},
-  {id:'north', n:'북부', w:'서리등뼈 산맥 · 관문 도시 하르덴', d:'마차 6~8일',
-   t:'눈이 깊고 겨울이 긴 광산과 요새의 땅. 마력을 전하는 푸른 광석 청은석과 서리강 무구가 명물입니다. 광부들은 갱도 입구에 소금과 빵을 놓아 둡니다.', h:'갱도의 이웃은 무엇을 지키고 있을까.', x:50,y:19,w2:26,h2:12},
-  {id:'east', n:'동부', w:'연구 도시 에베른 · 고대 숲 오래숲', d:'마차 4~5일',
-   t:'마도원 분원과 천문대, 유리와 렌즈, 약학과 증류의 땅. 그 너머로 해가 진 뒤엔 아무도 들어가지 않는 고대 숲이 이어집니다.', h:'숲은 길을 잃게 하는 것일까, 지키는 것일까.', x:79,y:41,w2:22,h2:12},
-  {id:'west', n:'서부', w:'무역 도시 델마레 · 안개 낀 만', d:'마차 5~6일',
-   t:'부두와 창고가 늘어선 무역의 심장. 신용 계약과 해상 보험, 정보 거래가 오갑니다. 새벽 해무 속 어시장이 유명하고, 연안에는 파도와 날씨를 파는 물 밑 이웃이 삽니다.', h:'', x:23,y:49,w2:25,h2:12},
-  {id:'south', n:'남부', w:'대수도원 도시 오르벨라 · 순례길', d:'마차 3~4일',
-   t:'밀밭과 포도밭, 수로와 풍차가 이어지는 평야. 포도주와 치즈, 꿀, 수도원 필사실이 명물입니다. 교회가 정령 신앙을 경계해 비인간은 드뭅니다.', h:'순례길 위에서 사라진 이들은 어디로 갔을까.', x:48,y:68,w2:24,h2:12},
-  {id:'frontier', n:'변경', w:'황무지 · 협곡 · 늪지 · 개척지', d:'마차 7~14일',
-   t:'지도의 빈칸을 메우러 들어간 개척민과 길잡이, 탐험가, 떠돌이 예인의 땅. 마물이 가장 흔하고 고대 유적 곳곳에서 정체불명의 현상이 보고됩니다. 이곳에서는 신분보다 실적이 통합니다.', h:'', x:79,y:61,w2:22,h2:12},
-  {id:'largo', n:'라르고 곶', w:'남서 해안 · 등대탑이 선 곶', d:'마차 10일 이상',
-   t:'소금과 어업으로 사는 아랫마을과 곶 끝의 성. 11년 전 무성의 밤에 해안 결계가 무너진 뒤로 사람이 줄었습니다. 별은 돌아왔지만 곶 상공에서만은 여전히 흐립니다.', h:'그날 밤, 별은 어디로 갔던 걸까.'}
-];
-
-/* ============================================================
-   동작 코드
-   ============================================================ */
-const $ = (s, r = document) => r.querySelector(s);
-const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const byId = id => CHARS.find(c => c.id === id);
-
-/* ----- 카드 만들기 ----- */
-function makeCard(c){
-  const el = document.createElement('article');
-  el.className = 'tcard';
-  el.dataset.id = c.id;
-  el.style.setProperty('--a', c.a);
-  const art = c.img
-    ? `<img src="${c.img}" alt="${c.name} 일러스트" loading="lazy">`
-    : `<div class="ph"><svg aria-hidden="true"><use href="#star8"/></svg><i>${c.num}</i></div>`;
-  const corners = ['a','b','c','d'].map(k => `<svg class="cn ${k}" aria-hidden="true"><use href="#corner"/></svg>`).join('');
-  el.innerHTML = `
-    <div class="inner">
-      <div class="face front">
-        ${corners}
-        <div class="art">${art}</div>
-        <div class="plate"><span class="num">${c.num}</span><strong class="nm">${c.name}</strong><em class="en">${c.en}</em></div>
-        <button class="flip" type="button" aria-label="${c.name} 카드 뒤집기"></button>
-      </div>
-      <div class="face back">
-        ${corners}
-        <span class="role">${c.role}</span>
-        <h3>${c.name}</h3>
-        ${c.age ? `<span class="age">${c.age}</span>` : ''}
-        <svg class="fl" aria-hidden="true"><use href="#flourish"/></svg>
-        <p class="hook">${c.hook}</p>
-        <ul class="kw">${c.kw.map(k => `<li>${k}</li>`).join('')}</ul>
-        <div class="acts">
-          ${c.link ? `<a class="go" href="${c.link}" target="_blank" rel="noopener">대화 시작하기</a>` : ''}
-          <button class="fb flip" type="button">앞면 보기</button>
-        </div>
-      </div>
-    </div>`;
-  const front = $('.front', el), back = $('.back', el);
-  const set = on => {
-    el.classList.toggle('flipped', on);
-    front.inert = on; back.inert = !on;
-  };
-  set(false);
-  $$('.flip', el).forEach(b => b.addEventListener('click', () => set(!el.classList.contains('flipped'))));
-  el.setFlip = set;
-  return el;
-}
-
-/* ----- 인물 목록 / 필터 ----- */
-const rail = $('#rail');
-let filter = 'all';
-function renderCast(){
-  rail.replaceChildren(...CHARS.filter(c => filter === 'all' || c.arc === filter).map(makeCard));
-  rail.scrollTo({left:0});
-}
-$('#filters').addEventListener('click', e => {
-  const b = e.target.closest('[data-f]'); if(!b) return;
-  filter = b.dataset.f;
-  $$('#filters .chip').forEach(x => x.setAttribute('aria-pressed', x === b));
-  renderCast();
-});
-function focusChar(id){
-  const c = byId(id); if(!c) return;
-  if(filter !== 'all' && filter !== c.arc){ $('#filters [data-f="all"]').click(); }
-  const el = $(`.tcard[data-id="${id}"]`, rail); if(!el) return;
-  $('#cast').scrollIntoView({behavior: reduce ? 'auto' : 'smooth'});
-  setTimeout(() => {
-    el.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'nearest', inline:'center'});
-    el.setFlip(true);
-  }, reduce ? 0 : 500);
-}
-
-/* ----- 지도 ----- */
-const mapwrap = $('#mapwrap'), chips = $('#chips'), panel = $('#panel');
-REGIONS.forEach(r => {
-  if(r.x != null){
-    const h = document.createElement('button');
-    h.type = 'button'; h.className = 'hs'; h.dataset.r = r.id; h.setAttribute('aria-label', r.n);
-    h.style.cssText = `left:${r.x}%;top:${r.y}%;width:${r.w2}%;height:${r.h2}%`;
-    mapwrap.appendChild(h);
-  }
-  const c = document.createElement('button');
-  c.type = 'button'; c.className = 'chip'; c.dataset.r = r.id; c.textContent = r.n;
-  chips.appendChild(c);
-});
-function showRegion(id){
-  const r = REGIONS.find(x => x.id === id);
-  $$('[data-r]').forEach(el => {
-    const on = el.dataset.r === id;
-    el.classList.toggle('on', on);
-    if(el.classList.contains('chip')) el.setAttribute('aria-pressed', on);
-  });
-  panel.innerHTML = `<h3>${r.n}</h3><div class="where">${r.w}</div><p>${r.t}</p>
-    ${r.h ? `<p class="hook">${r.h}</p>` : ''}${r.d ? `<span class="days">수도에서 ${r.d}</span>` : ''}`;
-}
-[mapwrap, chips].forEach(box => box.addEventListener('click', e => {
-  const t = e.target.closest('[data-r]'); if(t) showRegion(t.dataset.r);
-}));
-showRegion('hwangdo');
-
-/* ----- 이야기 ----- */
-$('#stories').innerHTML = STORIES.map(s => `
-  <article class="poster${s.soon ? ' soon' : ''}">
-    <span class="st">${s.st}</span>
-    <h3>${s.t}</h3>
-    <p class="one">${s.one}</p>
-    <p>${s.txt}</p>
-    <p class="gen">${s.gen}</p>
-    ${s.who ? `<div class="who">${s.who.map(id => { const c = byId(id); return `<button type="button" data-who="${id}"><b>${c.num}</b>${c.name}</button>`; }).join('')}</div>` : ''}
-    ${s.veil ? `<div class="veil" aria-label="아직 공개되지 않은 카드 넉 장">${s.veil.map(v => `<span>${v}</span>`).join('')}</div>` : ''}
-  </article>`).join('');
-$('#stories').addEventListener('click', e => {
-  const b = e.target.closest('[data-who]'); if(b) focusChar(b.dataset.who);
-});
-
-/* ----- 오늘의 카드 ----- */
-const dlg = $('#draw'), deck = $('#deck'), res = $('#res'), dPick = $('#dPick');
-let picks = [];
-function openDraw(){
-  picks = [...CHARS].sort(() => Math.random() - .5).slice(0, 3);
-  deck.innerHTML = picks.map((c, i) => `<button class="dk" type="button" data-i="${i}" aria-label="${i + 1}번째 카드 고르기"></button>`).join('');
-  dPick.hidden = false; res.hidden = true; res.replaceChildren();
-  if(!dlg.open) dlg.showModal();
-}
-function reveal(i){
-  const c = picks[i];
-  const card = makeCard(c); card.classList.add('pop');
-  const box = document.createElement('div');
-  box.append(card);
-  const info = document.createElement('div');
-  info.innerHTML = `
-    <h3>오늘의 카드는 ‘${c.en}’</h3>
-    <p>${c.name} · ${c.role}</p>
-    <p>카드를 눌러 뒤집어 보세요.</p>
-    <div class="cta">
-      <button class="btn main" type="button" id="seeIt">인물 카드에서 보기</button>
-      <button class="btn ghost" type="button" id="again">다시 뽑기</button>
-    </div>`;
-  res.replaceChildren(box, info);
-  dPick.hidden = true; res.hidden = false;
-  $('#seeIt', res).onclick = () => { dlg.close(); focusChar(c.id); };
-  $('#again', res).onclick = openDraw;
-}
-deck.addEventListener('click', e => { const b = e.target.closest('.dk'); if(b) reveal(+b.dataset.i); });
-$$('[data-draw]').forEach(b => b.addEventListener('click', openDraw));
-$('#dClose').addEventListener('click', () => dlg.close());
-dlg.addEventListener('click', e => { if(e.target === dlg) dlg.close(); });
-
-/* ----- 히어로 시차 (마우스 환경에서만) ----- */
-const halo = $('#halo');
-if(!reduce && matchMedia('(hover:hover)').matches){
-  let raf = 0;
-  addEventListener('pointermove', e => {
-    cancelAnimationFrame(raf);
-    raf = requestAnimationFrame(() => {
-      const x = (e.clientX / innerWidth - .5) * 14, y = (e.clientY / innerHeight - .5) * 14;
-      halo.style.setProperty('--px', x + 'px'); halo.style.setProperty('--py', y + 'px');
-    });
-  }, {passive:true});
-}
-
-renderCast();
-</script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>
