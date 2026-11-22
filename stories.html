@@ -41,9 +41,9 @@
     <a class="logo" href="index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#star8"/></svg>아르카나</a>
     <nav aria-label="바로가기">
       <a href="index.html#world">세계</a>
-      <a href="characters.html">인물</a>
-      <a href="stories.html" aria-current="page">이야기</a>
-      <a class="pill" href="index.html#draw">카드 뽑기</a>
+      <a href="characters.html">캐릭터</a>
+      <a href="stories.html" aria-current="page">스토리</a>
+      <a class="pill" href="draw.html">카드 뽑기</a>
     </nav>
   </div>
 </header>
@@ -80,7 +80,7 @@
 <script>
 $('#stories').innerHTML = STORIES.map(s => `
   <article class="poster${s.soon ? ' soon' : ''}">
-    <span class="st">${s.st}</span>
+    ${s.soon ? `<span class="st">${s.st}</span>` : ''}
     ${s.img ? `<img class="cover" src="${s.img}" alt="${s.t} 표지" loading="lazy">` : ''}
     <h3>${s.t}</h3>
     <p class="one">${s.one}</p>

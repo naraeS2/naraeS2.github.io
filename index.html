@@ -42,9 +42,9 @@
     <a class="logo" href="#top"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#star8"/></svg>아르카나</a>
     <nav aria-label="바로가기">
       <a href="#world">세계</a>
-      <a href="characters.html">인물</a>
-      <a href="stories.html">이야기</a>
-      <a class="pill" href="#draw">카드 뽑기</a>
+      <a href="characters.html">캐릭터</a>
+      <a href="stories.html">스토리</a>
+      <a class="pill" href="draw.html">카드 뽑기</a>
     </nav>
   </div>
 </header>
@@ -52,8 +52,8 @@
 <main id="top">
 
 <!-- 히어로 : 카드 뽑기 -->
-<div class="hero" id="draw">
-  <div class="halo" id="halo" role="group" aria-label="카드 세 장이 놓인 타로 로마 숫자 고리">
+<div class="hero">
+  <a class="halo" href="draw.html" aria-label="카드 뽑으러 가기">
     <svg class="ring" viewBox="0 0 600 600" aria-hidden="true">
       <circle cx="300" cy="300" r="292" fill="none" stroke="#d2ad62" stroke-width="1.6"/>
       <circle cx="300" cy="300" r="284" fill="none" stroke="#8f7035" stroke-width="1"/>
@@ -66,13 +66,13 @@
       </g>
     </svg>
     <div class="ringtext" id="ringtext" aria-hidden="true"></div>
-    <div class="disc"><div class="deck" id="deck"></div></div>
-  </div>
+    <div class="disc"><div class="deck" aria-hidden="true"><span class="dk"></span><span class="dk"></span><span class="dk"></span></div></div>
+  </a>
   <h1>아르카나</h1>
   <p class="en">Arcana of Belua</p>
-  <p class="tag" id="pickTag">마음이 가는 카드를 한 장 고르세요.<br>벨루아 대륙의 누군가가 기다립니다.</p>
-  <div class="res" id="res" hidden aria-live="polite"></div>
+  <p class="tag">원 안의 카드를 눌러 한 장 뽑아 보세요.<br>벨루아 대륙의 누군가가 기다립니다.</p>
   <div class="cta">
+    <a class="btn main" href="draw.html">카드 뽑기 →</a>
     <a class="btn ghost" href="#world">벨루아 대륙 둘러보기 ↓</a>
   </div>
 </div>
@@ -86,7 +86,7 @@
       <svg class="fl" aria-hidden="true"><use href="#flourish"/></svg>
     </div>
     <div class="intro">
-      <p>벨루아 대륙 한가운데, 마법이 질서가 된 제국 <b>아르카나</b>가 있습니다. 수도 아르켄시아를 중심으로 네 권역과 변경이 방사형으로 뻗어 있고, 황실과 귀족, 성좌교회, 황립 마도원, 황립 길드 연합이 사회를 이룹니다.</p>
+      <p>벨루아 대륙 한가운데, 마법이 질서가 된 제국 <b>아르카나</b>가 있습니다. 수도 아르켄시아를 중심으로 네 권역과 변경이 방사형으로 뻗어 있고, 황실과 귀족, 성좌교회, 황립 마도원, 황립 길드 연합, 개척청이 사회를 이룹니다.</p>
       <p>사회는 인간이 중심이지만 마법과 마도구, 마물과 정령, 고대 문명의 유적이 일상 곁에 있습니다. 신분의 영향이 크되 능력과 공적으로 오를 길도 열려 있습니다.</p>
     </div>
     <div class="facts">
@@ -96,10 +96,10 @@
       <div class="fact"><h3>드러나지 않은 땅</h3><p>제국 바깥은 지도에 적히지 않았고, 고대 문명이 사라진 이유도 아직 모릅니다.</p></div>
     </div>
 
-    <h3 class="sub-h">제국을 지탱하는 네 개의 축</h3>
+    <h3 class="sub-h">제국을 지탱하는 다섯 개의 축</h3>
     <p class="sub-p">칸을 누르면 설명이 열리고, 다시 누르면 돌아옵니다.</p>
     <div class="pillars">
-      <div class="pgrid" id="pgrid"></div>
+      <div class="pmap" id="pgrid"></div>
       <button class="pdetail" id="pdetail" type="button" hidden></button>
     </div>
 
@@ -127,14 +127,18 @@
         <div class="route"><b>라르고</b><div class="bar"><i style="left:71.4%;width:28.6%"></i></div><span>10일 이상</span></div>
       </div>
       <div class="box">
-        <h3>동화·은화·금화</h3>
-        <p>일상은 동화와 은화, 고가 마도구·유물·귀족 계약은 금화로 오갑니다.</p>
-        <div class="coins" aria-label="1금화는 100은화, 1은화는 100동화">
-          <div class="coin g">금화<small>1</small></div><span class="eq">= 100</span>
-          <div class="coin s">은화<small>1</small></div><span class="eq">= 100</span>
-          <div class="coin c">동화<small>1</small></div>
+        <h3>화폐</h3>
+        <div class="cur">
+          <div class="coins" aria-label="1금화는 100은화, 1은화는 100동화">
+            <div class="coin g">금화<small>1</small></div><span class="eq">= 100</span>
+            <div class="coin s">은화<small>1</small></div><span class="eq">= 100</span>
+            <div class="coin c">동화<small>1</small></div>
+          </div>
+          <div class="ctext">
+            <p>일상은 동화와 은화, 고가 마도구·유물·귀족 계약은 금화로 오갑니다.</p>
+            <p>계약과 신용 중심의 상업이라 위조 계약과 사기, 밀수도 함께 존재합니다.</p>
+          </div>
         </div>
-        <p style="margin:0">계약과 신용 중심의 상업이라 위조 계약과 사기, 밀수도 함께 존재합니다.</p>
       </div>
     </div>
   </div>

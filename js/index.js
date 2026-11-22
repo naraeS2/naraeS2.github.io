@@ -38,61 +38,27 @@ function showRegion(id){
   panel.innerHTML = `<h3>${r.n}</h3><div class="where">${r.w}</div><p>${r.t}</p>
     <dl>${rows.map(x => `<dt>${x[0]}</dt><dd>${x[1]}</dd>`).join('')}</dl>
     ${r.x2 ? `<p class="more">${r.x2}</p>` : ''}
-    ${r.h ? `<p class="hook">${r.h}</p>` : ''}${r.d ? `<span class="days">수도에서 ${r.d}</span>` : ''}`;
+    ${r.h ? `<p class="hook">${r.h}</p>` : ''}`;
 }
 [mapwrap, chips].forEach(box => box.addEventListener('click', e => {
   const t = e.target.closest('[data-r]'); if(t) showRegion(t.dataset.r);
 }));
 showRegion('hwangdo');
 
-/* ----- 네 개의 축 : 2x2 버튼 ↔ 전체 덮개 ----- */
+/* ----- 다섯 개의 축 : 가운데 원 + 네 구역 ↔ 전체 덮개 ----- */
 const pgrid = $('#pgrid'), pdetail = $('#pdetail');
+const POS = ['pc', 'tl', 'tr', 'bl', 'br'];
 let lastBtn = null;
-pgrid.innerHTML = PILLARS.map((p, i) => `<button class="pbtn" type="button" data-i="${i}"><span class="rn">${p.rn}</span><b>${p.t}</b><small>눌러서 보기</small></button>`).join('');
+pgrid.innerHTML = PILLARS.map((p, i) => `<button class="${i ? 'pq ' + POS[i] : 'pc'}" type="button" data-i="${i}"><span class="rn">${p.rn}</span><b>${p.t}</b></button>`).join('');
 pgrid.addEventListener('click', e => {
-  const b = e.target.closest('.pbtn'); if(!b) return;
+  const b = e.target.closest('[data-i]'); if(!b) return;
   lastBtn = b;
   const p = PILLARS[+b.dataset.i];
   pdetail.innerHTML = `<span class="rn">${p.rn}</span><span class="dt">${p.t}</span>${p.p.map(x => `<span class="dp">${x}</span>`).join('')}<span class="bk">눌러서 돌아가기</span>`;
   pdetail.setAttribute('aria-label', p.t + ' 설명. 누르면 닫힙니다');
-  pdetail.hidden = false; pgrid.inert = true; pdetail.focus();
+  pdetail.hidden = false; pgrid.hidden = true; pdetail.focus();
 });
 pdetail.addEventListener('click', () => {
-  pdetail.hidden = true; pgrid.inert = false;
+  pdetail.hidden = true; pgrid.hidden = false;
   if(lastBtn) lastBtn.focus();
 });
-
-/* ----- 오늘의 카드 ----- */
-const deck = $('#deck'), res = $('#res'), halo = $('#halo'), pickTag = $('#pickTag');
-let picks = [];
-function shuffle(a){
-  a = [...a];
-  for(let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
-  return a;
-}
-function openDraw(){
-  picks = shuffle(CHARS).slice(0, 3);
-  deck.innerHTML = picks.map((c, i) => `<button class="dk" type="button" data-i="${i}" aria-label="${i + 1}번째 카드 고르기"></button>`).join('');
-  halo.hidden = false; pickTag.hidden = false; res.hidden = true; res.replaceChildren();
-}
-function reveal(i){
-  const c = picks[i];
-  const card = makeCard(c); card.classList.add('pop');
-  const box = document.createElement('div');
-  box.append(card);
-  const info = document.createElement('div');
-  info.innerHTML = `
-    <h3>오늘의 카드는 ‘${c.en}’</h3>
-    <p>${c.name}${c.ver ? ' (' + c.ver + ')' : ''} · ${c.role}</p>
-    <p>카드를 눌러 뒤집어 보세요.</p>
-    <div class="cta">
-      <a class="btn main" href="characters.html#${c.id}">인물 카드에서 보기</a>
-      <button class="btn ghost" type="button" id="again">다시 뽑기</button>
-    </div>`;
-  res.replaceChildren(box, info);
-  halo.hidden = true; pickTag.hidden = true; res.hidden = false;
-  $('#again', res).onclick = () => { openDraw(); $('#draw').scrollIntoView({behavior: reduce ? 'auto' : 'smooth'}); };
-  res.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'center'});
-}
-deck.addEventListener('click', e => { const b = e.target.closest('.dk'); if(b) reveal(+b.dataset.i); });
-openDraw();
