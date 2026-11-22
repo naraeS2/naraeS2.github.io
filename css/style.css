@@ -3,7 +3,6 @@
   --gold:#d2ad62; --gold-d:#8f7035; --ivory:#f1e5cd; --muted:#a99dba;
   --rose:#d99aa5; --sage:#93b9a3;
   --head:'Noto Serif KR',serif; --body:'Gowun Batang','Noto Serif KR',serif; --lat:'Cormorant Garamond',serif;
-  --map:url('https://i.ibb.co/F4XCshdC/image.png');
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:70px;-webkit-text-size-adjust:100%}
@@ -44,11 +43,22 @@ a{color:inherit}
 @-webkit-keyframes spin{from{-webkit-transform:translateZ(0) rotate(0deg)}to{-webkit-transform:translateZ(0) rotate(360deg)}}
 .disc{
   position:absolute;inset:12.5%;border-radius:50%;
-  background:var(--map) 50% 46%/cover,var(--bg2);
+  background:
+    radial-gradient(circle at 50% 50%,rgba(210,173,98,.22),transparent 62%),
+    repeating-conic-gradient(from 0deg at 50% 50%,rgba(210,173,98,.07) 0 6deg,transparent 6deg 12deg),
+    var(--bg2);
   box-shadow:0 0 0 3px var(--bg),0 0 0 4.5px var(--gold),0 0 70px rgba(210,173,98,.22);
-  transform:translate(var(--px),var(--py));transition:transform .25s ease-out;
 }
-.disc::after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,transparent 52%,rgba(21,14,32,.6))}
+.disc::after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,transparent 55%,rgba(21,14,32,.55));pointer-events:none}
+.deck{position:absolute;inset:0;z-index:1}
+.dk{position:absolute;left:50%;top:50%;width:23cqw;aspect-ratio:300/520;border:1px solid var(--gold);border-radius:2.2cqw;--dx:0cqw;--dy:0cqw;--rot:0deg;
+  transform:translate(-50%,-50%) translate(var(--dx),var(--dy)) rotate(var(--rot));transition:transform .3s;
+  background:radial-gradient(circle at 50% 50%,rgba(210,173,98,.4) 0 4%,transparent 5% 18%,rgba(210,173,98,.2) 19% 20%,transparent 21%),
+   repeating-conic-gradient(from 0deg at 50% 50%,rgba(210,173,98,.12) 0 7deg,transparent 7deg 14deg),#241a38;
+  box-shadow:inset 0 0 0 1.1cqw var(--bg2),inset 0 0 0 1.4cqw var(--gold-d),0 6px 16px rgba(0,0,0,.45)}
+.dk:nth-child(1){--dx:-16cqw;--rot:-14deg;--dy:1.5cqw}
+.dk:nth-child(3){--dx:16cqw;--rot:14deg;--dy:1.5cqw}
+.dk:hover,.dk:focus-visible{--dy:-3cqw}
 .hero h1{margin-top:26px;font-family:var(--head);font-weight:900;font-size:clamp(40px,10vw,68px);line-height:1.2;letter-spacing:.06em;
   background:linear-gradient(180deg,#f8e6ab 10%,#cfa24f 55%,#f1d890);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero .en{font-family:var(--lat);font-style:italic;font-size:22px;color:var(--rose);margin-top:2px}
@@ -80,14 +90,28 @@ section{padding:84px 0 8px}
 .fact h3{font-family:var(--head);font-size:16px;color:var(--gold);margin-bottom:4px}
 .fact p{font-size:14.5px;line-height:1.75}
 
-/* 네 개의 축 */
-.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-.pillar{position:relative;border:1px solid var(--gold-d);background:linear-gradient(170deg,#2a1d42,#1a1229);padding:46px 20px 22px;text-align:center;border-radius:120px 120px 4px 4px / 90px 90px 4px 4px;box-shadow:0 0 0 4px var(--bg),0 0 0 5px var(--line)}
-.pillar::before{content:"";position:absolute;inset:6px;border:1px solid rgba(210,173,98,.22);border-radius:114px 114px 2px 2px / 84px 84px 2px 2px;pointer-events:none}
-.pillar .rn{position:absolute;top:14px;left:0;right:0;font-family:var(--lat);font-style:italic;font-weight:700;font-size:26px;color:var(--gold);line-height:1}
-.pillar h3{font-family:var(--head);font-size:19px;color:var(--ivory);margin:14px 0 6px}
-.pillar p{font-size:14.5px;line-height:1.8;color:var(--ivory);text-align:left}
-.pillar p+p{margin-top:6px;color:var(--muted)}
+/* 네 개의 축 : 2x2 버튼 → 눌러서 전체 덮개 */
+.pillars{position:relative;max-width:760px;margin:0 auto}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:14px;min-height:420px}
+.pbtn{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:26px 8px 18px;text-align:center;
+  border:1px solid var(--gold-d);background:linear-gradient(170deg,#2a1d42,#1a1229);border-radius:100px 100px 8px 8px;
+  box-shadow:0 0 0 3px var(--bg),0 0 0 4px var(--line);transition:border-color .2s,transform .2s}
+.pbtn::before{content:"";position:absolute;inset:5px;border:1px solid rgba(210,173,98,.22);border-radius:95px 95px 4px 4px;pointer-events:none}
+.pbtn:hover{border-color:var(--gold);transform:translateY(-2px)}
+.pbtn .rn{font-family:var(--lat);font-style:italic;font-weight:700;font-size:32px;line-height:1;color:var(--gold)}
+.pbtn b{font-family:var(--head);font-size:17px;line-height:1.35;color:var(--ivory)}
+.pbtn small{font-size:12.5px;color:var(--muted)}
+.pdetail{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;overflow:auto;
+  padding:70px 24px 28px;text-align:center;color:var(--ivory);border:1px solid var(--gold);border-radius:150px 150px 10px 10px;
+  background:linear-gradient(170deg,#33254f,#1a1229);box-shadow:0 0 0 3px var(--bg),0 0 0 4px var(--line),0 18px 40px rgba(0,0,0,.5)}
+.pdetail[hidden]{display:none}
+.pdetail::before{content:"";position:absolute;inset:6px;border:1px solid rgba(210,173,98,.25);border-radius:144px 144px 5px 5px;pointer-events:none}
+.pdetail .rn{font-family:var(--lat);font-style:italic;font-weight:700;font-size:30px;line-height:1;color:var(--gold)}
+.pdetail .dt{font-family:var(--head);font-weight:700;font-size:22px;color:var(--gold);line-height:1.4}
+.pdetail .dp{display:block;font-size:15px;line-height:1.8;text-align:left;max-width:520px}
+.pdetail .dp+.dp{color:var(--muted)}
+.pdetail .bk{margin-top:6px;font-size:13px;color:var(--muted)}
+@media(min-width:700px){.pgrid{min-height:360px}.pdetail{padding:80px 56px 32px}}
 
 /* 지도 */
 .atlas{display:grid;gap:22px;align-items:start}
@@ -97,8 +121,7 @@ section{padding:84px 0 8px}
 .mapwrap img{display:block;width:100%;height:auto}
 .hs{position:absolute;transform:translate(-50%,-50%);border-radius:50%;border:1px solid transparent;transition:background .25s,border-color .25s}
 .hs:hover,.hs.on{background:rgba(210,173,98,.2);border-color:var(--gold)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-@media(max-width:899px){.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}.chips::-webkit-scrollbar{display:none}}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:20px}
 .chip{white-space:nowrap;border:1px solid var(--line);border-radius:99px;padding:5px 15px;font-size:14.5px;color:var(--muted);transition:all .2s}
 .chip:hover{color:var(--ivory)}
 .chip[aria-pressed="true"]{border-color:var(--gold);color:#1d1226;background:var(--gold)}
@@ -132,19 +155,6 @@ section{padding:84px 0 8px}
 .coin small{font-family:var(--body);font-weight:400;font-size:11.5px;color:var(--muted)}
 .coin.g{color:#e4c070}.coin.s{color:#c9ccd6}.coin.c{color:#c98a5d}
 .eq{font-family:var(--lat);font-style:italic;font-size:20px;color:var(--muted)}
-
-/* 제국의 안쪽 */
-.lore{margin-top:84px}
-.tabs{justify-content:center;margin:0 0 20px}
-@media(max-width:899px){.tabs{justify-content:flex-start}}
-#loreList{max-width:760px;margin:0 auto}
-.cat{font-family:var(--head);font-size:15px;color:var(--rose);margin:26px 0 8px;font-weight:700}
-#loreList details{background:var(--panel);border:1px solid var(--line);margin-top:8px}
-#loreList summary{cursor:pointer;padding:13px 18px;font-family:var(--head);font-weight:700;font-size:15.5px;color:var(--gold);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
-#loreList summary::-webkit-details-marker{display:none}
-#loreList summary::after{content:"+";font-size:20px;color:var(--muted);transition:transform .2s;flex:none}
-#loreList details[open] summary::after{transform:rotate(45deg)}
-#loreList details p{padding:0 18px 16px;font-size:15.5px;line-height:1.85}
 
 /* ---------- 카드 (공통) ---------- */
 .filters{display:flex;justify-content:center;gap:8px;margin-bottom:26px;flex-wrap:wrap}
@@ -209,22 +219,8 @@ section{padding:84px 0 8px}
 .who b{font-family:var(--lat);font-style:italic;color:var(--gold);font-size:17px;line-height:1}
 .poster .btn{margin-top:22px;align-self:flex-start}
 
-/* ---------- 오늘의 카드 ---------- */
-#draw{padding-top:90px}
-.drawbox{max-width:620px;margin:0 auto;border:1px solid var(--gold-d);background:linear-gradient(175deg,#2a1d42,#1a1229);border-radius:200px 200px 8px 8px;padding:64px 22px 36px;text-align:center;position:relative;
-  box-shadow:0 0 0 5px var(--bg),0 0 0 6px var(--line)}
-@media(max-width:560px){.drawbox{border-radius:140px 140px 8px 8px;padding-top:54px}}
-.drawbox::before{content:"";position:absolute;inset:8px;border:1px solid rgba(210,173,98,.22);border-radius:192px 192px 3px 3px;pointer-events:none}
-.drawbox>.star{position:absolute;top:22px;left:50%;width:18px;height:18px;transform:translateX(-50%);fill:var(--gold)}
-.drawbox h2{font-family:var(--head);font-size:clamp(24px,5.5vw,32px);font-weight:700;line-height:1.5}
-.drawbox .sub{color:var(--muted);font-size:15px;margin:2px 0 26px}
-.deck{display:flex;justify-content:center;gap:14px}
-.dk{width:min(30%,150px);aspect-ratio:300/520;border:1px solid var(--gold);border-radius:12px;transition:transform .3s;
-  background:radial-gradient(circle at 50% 50%,rgba(210,173,98,.35) 0 4%,transparent 5% 18%,rgba(210,173,98,.18) 19% 20%,transparent 21%),
-   repeating-conic-gradient(from 0deg at 50% 50%,rgba(210,173,98,.1) 0 7deg,transparent 7deg 14deg),#241a38;
-  box-shadow:inset 0 0 0 5px var(--bg2),inset 0 0 0 6px var(--gold-d)}
-.dk:nth-child(1){transform:rotate(-6deg) translateY(6px)}.dk:nth-child(3){transform:rotate(6deg) translateY(6px)}
-.dk:hover,.dk:focus-visible{transform:translateY(-10px) rotate(0)}
+/* ---------- 오늘의 카드 결과 ---------- */
+.res{margin:6px auto 0;padding:0 20px}
 .res .tcard{width:min(270px,72%);margin:0 auto;flex:none}
 .res .tcard.pop{animation:pop .8s cubic-bezier(.2,.7,.2,1)}
 @keyframes pop{from{opacity:0;transform:scale(.8) rotate(-5deg)}to{opacity:1;transform:none}}
@@ -249,7 +245,7 @@ footer{border-top:1px solid var(--line);margin-top:50px;padding:26px 20px 40px;t
   html{scroll-behavior:auto}
   .hero *,.res .tcard.pop{animation:none!important}
   .ringtext{animation:spin 900s linear infinite!important} /* '동작 줄이기' 설정에서도 아주 느리게만 움직임 */
-  .inner,.disc,.tcard{transition:none!important}
+  .inner,.tcard,.dk{transition:none!important}
 }
 
 .poster .cover{display:block;width:100%;height:auto;margin:14px 0 18px;border:1px solid var(--gold-d);box-shadow:0 0 0 3px var(--bg),0 0 0 4px var(--line)}

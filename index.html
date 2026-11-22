@@ -51,9 +51,9 @@
 
 <main id="top">
 
-<!-- 히어로 : 주소로 들어오면 가장 먼저 보이는 세계 소개 -->
-<div class="hero">
-  <div class="halo" id="halo" role="img" aria-label="벨루아 대륙 지도를 감싼 타로 로마 숫자 고리">
+<!-- 히어로 : 카드 뽑기 -->
+<div class="hero" id="draw">
+  <div class="halo" id="halo" role="group" aria-label="카드 세 장이 놓인 타로 로마 숫자 고리">
     <svg class="ring" viewBox="0 0 600 600" aria-hidden="true">
       <circle cx="300" cy="300" r="292" fill="none" stroke="#d2ad62" stroke-width="1.6"/>
       <circle cx="300" cy="300" r="284" fill="none" stroke="#8f7035" stroke-width="1"/>
@@ -66,14 +66,14 @@
       </g>
     </svg>
     <div class="ringtext" id="ringtext" aria-hidden="true"></div>
-    <div class="disc"></div>
+    <div class="disc"><div class="deck" id="deck"></div></div>
   </div>
   <h1>아르카나</h1>
   <p class="en">Arcana of Belua</p>
-  <p class="tag">별이 머무는 땅, 벨루아 대륙.<br>카드 한 장에 한 사람, 한 사람에 하나의 이야기.</p>
+  <p class="tag" id="pickTag">마음이 가는 카드를 한 장 고르세요.<br>벨루아 대륙의 누군가가 기다립니다.</p>
+  <div class="res" id="res" hidden aria-live="polite"></div>
   <div class="cta">
-    <a class="btn main" href="#world">세계 둘러보기</a>
-    <a class="btn ghost" href="#draw">오늘의 카드 뽑기</a>
+    <a class="btn ghost" href="#world">벨루아 대륙 둘러보기 ↓</a>
   </div>
 </div>
 
@@ -97,20 +97,10 @@
     </div>
 
     <h3 class="sub-h">제국을 지탱하는 네 개의 축</h3>
-    <p class="sub-p">서로 견제하고 기대며 제국을 움직입니다. 누구도 한 덩어리가 아닙니다.</p>
+    <p class="sub-p">칸을 누르면 설명이 열리고, 다시 누르면 돌아옵니다.</p>
     <div class="pillars">
-      <div class="pillar"><span class="rn">I</span><h3>황실과 귀족</h3>
-        <p>통치·행정·군사·외교를 맡는 지배층. 작위와 가문, 영지, 동맹이 지위를 좌우합니다.</p>
-        <p>연회와 무도회, 혼인 동맹, 후원으로 정치가 이루어집니다. 모든 귀족이 같은 입장은 아닙니다.</p></div>
-      <div class="pillar"><span class="rn">II</span><h3>성좌교회</h3>
-        <p>신앙과 의례, 교육, 의료, 구호를 담당합니다. 대성당과 수도원에 고문서와 유물, 역사 기록을 보관합니다.</p>
-        <p>지역에 따라 영향력이 다르고, 성직자마다 신념과 정치적 입장이 다릅니다.</p></div>
-      <div class="pillar"><span class="rn">III</span><h3>황립 마도원</h3>
-        <p>마법 연구·교육·자격 인증 기관. 마도구 연구와 고대 유적 조사를 맡습니다.</p>
-        <p>위험한 마법과 유물은 허가와 통제 대상이며, 소속이라고 모든 마법을 쓸 수 있는 것은 아닙니다.</p></div>
-      <div class="pillar"><span class="rn">IV</span><h3>황립 길드 연합</h3>
-        <p>상업·생산·기술·탐험·유물 거래 길드의 협력 체계. 회원 자격과 거래 규칙을 관리하고 의뢰와 계약을 중개합니다.</p>
-        <p>무소속은 일부 의뢰와 거래에서 불이익을 받을 수 있습니다.</p></div>
+      <div class="pgrid" id="pgrid"></div>
+      <button class="pdetail" id="pdetail" type="button" hidden></button>
     </div>
 
     <h3 class="sub-h">여섯 개의 땅</h3>
@@ -146,31 +136,6 @@
         </div>
         <p style="margin:0">계약과 신용 중심의 상업이라 위조 계약과 사기, 밀수도 함께 존재합니다.</p>
       </div>
-    </div>
-
-    <div class="lore" id="lore">
-      <div class="head">
-        <h2>제국의 안쪽</h2>
-        <p>궁금한 항목을 눌러 펼쳐 보세요.</p>
-        <svg class="fl" aria-hidden="true"><use href="#flourish"/></svg>
-      </div>
-      <div class="chips tabs" id="loreTabs" role="group" aria-label="설정 분류"></div>
-      <div id="loreList"></div>
-    </div>
-  </div>
-</section>
-
-<!-- 오늘의 카드 뽑기 -->
-<section id="draw">
-  <div class="wrap">
-    <div class="drawbox">
-      <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><use href="#star8"/></svg>
-      <div id="dPick">
-        <h2>오늘의 카드</h2>
-        <p class="sub">마음이 가는 카드를 한 장 고르세요.</p>
-        <div class="deck" id="deck"></div>
-      </div>
-      <div class="res" id="res" hidden aria-live="polite"></div>
     </div>
   </div>
 </section>

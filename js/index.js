@@ -45,22 +45,25 @@ function showRegion(id){
 }));
 showRegion('hwangdo');
 
-/* ----- 제국의 안쪽 ----- */
-const loreTabs = $('#loreTabs'), loreList = $('#loreList');
-let loreCat = LORE[0].c;
-function renderLore(){
-  const cats = LORE.filter(g => loreCat === '전체' || g.c === loreCat);
-  loreList.innerHTML = cats.map(g => `
-    ${loreCat === '전체' ? `<h4 class="cat">${g.c}</h4>` : ''}
-    ${g.e.map(([t, x]) => `<details><summary>${t}</summary><p>${x}</p></details>`).join('')}`).join('');
-  $$('.chip', loreTabs).forEach(b => b.setAttribute('aria-pressed', b.dataset.c === loreCat));
-}
-loreTabs.innerHTML = ['전체', ...LORE.map(g => g.c)].map(c => `<button class="chip" type="button" data-c="${c}">${c}</button>`).join('');
-loreTabs.addEventListener('click', e => { const b = e.target.closest('[data-c]'); if(b){ loreCat = b.dataset.c; renderLore(); } });
-renderLore();
+/* ----- 네 개의 축 : 2x2 버튼 ↔ 전체 덮개 ----- */
+const pgrid = $('#pgrid'), pdetail = $('#pdetail');
+let lastBtn = null;
+pgrid.innerHTML = PILLARS.map((p, i) => `<button class="pbtn" type="button" data-i="${i}"><span class="rn">${p.rn}</span><b>${p.t}</b><small>눌러서 보기</small></button>`).join('');
+pgrid.addEventListener('click', e => {
+  const b = e.target.closest('.pbtn'); if(!b) return;
+  lastBtn = b;
+  const p = PILLARS[+b.dataset.i];
+  pdetail.innerHTML = `<span class="rn">${p.rn}</span><span class="dt">${p.t}</span>${p.p.map(x => `<span class="dp">${x}</span>`).join('')}<span class="bk">눌러서 돌아가기</span>`;
+  pdetail.setAttribute('aria-label', p.t + ' 설명. 누르면 닫힙니다');
+  pdetail.hidden = false; pgrid.inert = true; pdetail.focus();
+});
+pdetail.addEventListener('click', () => {
+  pdetail.hidden = true; pgrid.inert = false;
+  if(lastBtn) lastBtn.focus();
+});
 
 /* ----- 오늘의 카드 ----- */
-const deck = $('#deck'), res = $('#res'), dPick = $('#dPick');
+const deck = $('#deck'), res = $('#res'), halo = $('#halo'), pickTag = $('#pickTag');
 let picks = [];
 function shuffle(a){
   a = [...a];
@@ -70,7 +73,7 @@ function shuffle(a){
 function openDraw(){
   picks = shuffle(CHARS).slice(0, 3);
   deck.innerHTML = picks.map((c, i) => `<button class="dk" type="button" data-i="${i}" aria-label="${i + 1}번째 카드 고르기"></button>`).join('');
-  dPick.hidden = false; res.hidden = true; res.replaceChildren();
+  halo.hidden = false; pickTag.hidden = false; res.hidden = true; res.replaceChildren();
 }
 function reveal(i){
   const c = picks[i];
@@ -87,22 +90,9 @@ function reveal(i){
       <button class="btn ghost" type="button" id="again">다시 뽑기</button>
     </div>`;
   res.replaceChildren(box, info);
-  dPick.hidden = true; res.hidden = false;
+  halo.hidden = true; pickTag.hidden = true; res.hidden = false;
   $('#again', res).onclick = () => { openDraw(); $('#draw').scrollIntoView({behavior: reduce ? 'auto' : 'smooth'}); };
   res.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'center'});
 }
 deck.addEventListener('click', e => { const b = e.target.closest('.dk'); if(b) reveal(+b.dataset.i); });
 openDraw();
-
-/* ----- 히어로 시차 (마우스 환경에서만) ----- */
-const halo = $('#halo');
-if(!reduce && matchMedia('(hover:hover)').matches){
-  let raf = 0;
-  addEventListener('pointermove', e => {
-    cancelAnimationFrame(raf);
-    raf = requestAnimationFrame(() => {
-      const x = (e.clientX / innerWidth - .5) * 14, y = (e.clientY / innerHeight - .5) * 14;
-      halo.style.setProperty('--px', x + 'px'); halo.style.setProperty('--py', y + 'px');
-    });
-  }, {passive:true});
-}
