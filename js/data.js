@@ -25,7 +25,7 @@ const CHARS = [
    hook:'장난스러운 웃음, 달콤한 거래. 어디까지가 진심일까.', kw:['유혹','욕망','거래','장난'], a:'#b9d65f', img:'https://i.ibb.co/dJbZbHjt/image.png',
    link:'https://litychat.com/share/content/fd44e8fb-8315-4e5f-9799-71365fd1f459'},
   {id:'vesper', arc:'major', num:'XVII', en:'The Star', name:'베스페르 아르덴', role:'라르고 성의 젊은 백작', age:'23세',
-   hook:'“무슨 일로 저를 찾아오신 건가요.”', kw:['희망','영감','성광','고요'], a:'#8fb3de', img:'https://i.ibb.co/RkcWTLtm/image.png',
+   hook:'11년 전, 그날 밤엔 무슨 일이 있었을까.', kw:['희망','영감','성광','고요'], a:'#8fb3de', img:'https://i.ibb.co/RkcWTLtm/image.png',
    link:'https://litychat.com/share/content/0eb860a0-6d54-4144-99fa-ded7549ad4fe'},
   {id:'adrian', arc:'major', num:'XIX', en:'The Sun', name:'아드리안 아르카나', ver:'찬란한 불협화음', role:'아르카나 제국의 황태자', age:'26세',
    hook:'한낮의 태양 같은 황태자. 그늘진 궁정에 불쑥 들어선 빛.', kw:['생명력','낙관','자신감','희망'], a:'#f0c267', img:'https://i.ibb.co/fYr4S6BD/image.png',
@@ -42,7 +42,7 @@ const CHARS = [
 ];
 
 const STORIES = [
-  {id:'brilliant', num:'✦', en:'The Tale', a:'#e3bf6a', t:'찬란한 불협화음', st:'공개', img:'https://i.ibb.co/99smcHrK/image.png', one:'삼각관계는 질색인데요!?', gen:'궁정 로맨스 · 정치 드라마',
+  {id:'brilliant', num:'✦', en:'The Tale', a:'#e3bf6a', t:'찬란한 불협화음', st:'공개', img:'https://i.ibb.co/99smcHrK/image.png', one:'황궁에서 살아남기', gen:'궁정 로맨스 · 정치 드라마',
    txt:'오래된 금처럼 묵직한 황제와 한낮처럼 눈부신 황태자. 부자가 함께 사는 궁정에서 당신의 선택이 균형을 흔듭니다.',
    more:'정치 갈등은 통치 과정의 현실적인 문제로만 다룹니다. 아버지와 아들, 황제와 개인 사이에서 누구의 속도에 맞출지는 오롯이 당신의 몫입니다.',
    who:['jeradin56','adrian'], link:STORY_LINK}
