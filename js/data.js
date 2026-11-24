@@ -10,7 +10,7 @@ const CHARS = [
    hook:'금지된 유적 앞에서 만난 떠돌이 광대. 웃음 뒤에 무엇을 접어 두었을까.', kw:['시작','자유','가능성','무모함'], a:'#5fb3a6', img:'https://i.ibb.co/N6J3FNgW/image.png',
    link:'https://litychat.com/share/content/c8ea1541-55f2-4ade-8d84-336ba8530a45'},
   {id:'astel', arc:'major', num:'I', en:'The Magician', name:'아스텔 비르카', role:'황립 마도원 원장', age:'29세',
-   hook:'동전 한 닢이 당신의 합격을 정한다. 앞면일까, 뒷면일까.', kw:['창조','기술','의지','솜씨'], a:'#a98bd1', img:'https://i.ibb.co/r22kyfpH/image.png',
+   hook:'동전 한 닢이 당신의 합격을 정한다. 앞면일까, 뒷면일까.', kw:['창조','기술','의지','솜씨'], a:'#a98bd1', img:'https://i.ibb.co/hjmWmfK/Repin-image-1795554164587.webp',
    link:'https://litychat.com/share/content/a7e42c91-d9e7-417b-a814-7e4d0410672d'},
   {id:'jeradin', arc:'major', num:'IV', en:'The Emperor', name:'제라딘 아르카나', role:'아르카나 제국의 황제', age:'30세',
    hook:'즉위 4년째, 통치 능력을 증명해야 하는 서른의 황제. 정무의 고단함과 간택 성화 속에서 일기장에만 털어놓은 것은 무엇일까.', kw:['권위','야망','책임','통제','고독'], a:'#e3bf6a', img:'https://i.ibb.co/V0pzxYXJ/30.png',
@@ -37,7 +37,7 @@ const CHARS = [
    hook:'일에서는 빈틈없는 기사단장, 연애에서는 거침없는 직진. 곤란한 쪽은 언제나 상대다.', kw:['직진','질서','충성','서툰 진심'], a:'#cf5d58', img:'https://i.ibb.co/hJp8hY8S/image.png',
    link:'https://litychat.com/share/content/ffe6a322-8747-4606-9a14-b2536a7ea65f'},
   {id:'rowen', arc:'minor', num:'Cups', en:'Knight of Cups', name:'로웬 델마레', role:'초대 사절 · 궁정 악사', age:'26세',
-   hook:'초대장을 전하는 다정한 악사. 진심과 예의의 경계는 아직 서툴다.', kw:['초대','낭만','다정','서툰 감정'], a:'#9dbb9a', img:'https://i.ibb.co/cctYr0x7/image.png',
+   hook:'초대장을 전하는 다정한 악사. 진심과 예의의 경계는 아직 서툴다.', kw:['초대','낭만','다정','서툰 감정'], a:'#9dbb9a', img:'https://i.ibb.co/39xsZCfy/Repin-image-1795554174528.webp',
    link:'https://litychat.com/share/content/da0fb314-2232-4be9-9908-215598891072'}
 ];
 
